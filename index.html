@@ -590,6 +590,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
 .demo-steps li::marker{color:var(--butter);font-family:var(--mono);font-weight:600}
 .also.two{grid-template-columns:repeat(2,1fr)}
 @media (max-width:640px){.also.two{grid-template-columns:1fr}}
+.cs-head.solo{grid-template-columns:1fr}.cs-head.solo .hook{max-width:44em}
 </style>
 </head>
 <body>
@@ -695,7 +696,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <span class="eyebrow">Work</span>
           <h2>Two finance apps, end to end</h2>
         </div>
-        <p>Start with the app. Open any deep dive for the full story, from the problem to the trade-offs and the outcome. FunZ screens are from the shipped app, Ladder's come from its public App Store listing, and the FX flow is an illustrative mockup.</p>
+        <p>Start with the app. Open any deep dive for the full story, from the problem to the trade-offs and the outcome. FunZ screens are from the shipped app, and Ladder's come from its public App Store listing.</p>
       </div>
 
       <div class="studies">
@@ -742,31 +743,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
                 <span class="dive-cta"><span class="when-closed">Read the full story</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </summary>
               <div class="dive-body">
-<div class="cs-head">
-            <div class="p-visual" style="--tone:#FF7A59">
-              <div class="phone back" aria-hidden="true"><div class="screen">
-                <div class="mock">
-                  <div class="t">Quote expired</div>
-                  <div class="s">Rates moved while you were paying</div>
-                  <div class="fxcard" style="margin-top:6px"><small>Old rate</small><s>GH₵1 = ₦128.40</s></div>
-                  <div class="fxcard on"><small>New rate</small><b>GH₵1 = ₦127.95</b></div>
-                  <div class="card" style="background:#10142A;color:#fff;text-align:center;font:700 12px/1 var(--body);margin-top:auto">Review new quote</div>
-                </div>
-              </div></div>
-              <div class="phone front" role="img" aria-label="Illustrative screen buying Nigerian IPO units in cedis at a locked exchange rate"><div class="screen">
-                <div class="mock">
-                  <div class="s">Buy IPO units</div>
-                  <div class="t">NG Tech IPO</div>
-                  <div class="lock"><span>Rate locked</span><b>00:42</b></div>
-                  <div class="fxrow"><span>You pay</span><b>GH₵ 1,000.00</b></div>
-                  <div class="fxrow"><span>Rate</span><b>GH₵1 = ₦128.40</b></div>
-                  <div class="fxrow"><span>Fee</span><b>GH₵ 7.50</b></div>
-                  <div class="fxrow total"><span>You get</span><b>₦127,437.00</b></div>
-                  <div class="card" style="background:#FF7A59;color:#0C0F1D;text-align:center;font:700 12px/1 var(--body);margin-top:auto">Confirm purchase</div>
-                </div>
-              </div></div>
-              <span class="mocklabel">Illustrative mockup · example rates</span>
-            </div>
+<div class="cs-head solo">
             <div>
               <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Locked quotes</span><span class="tag">Typed error codes</span><span class="tag">Dio</span></div>
               <p class="hook">A user in Accra pays in cedis for IPO units priced in naira, at a rate that can't change under them halfway through paying.</p>

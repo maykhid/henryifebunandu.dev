@@ -23,7 +23,7 @@ All the "To fill in" boxes are done. What's left:
 `og-image.png` (1200×630) is the picture that shows when your link is shared. Your domain, henryifebunandu.dev, is already set in the canonical link, the Open Graph tags and the JSON-LD.
 
 Also check:
-- **Confidentiality.** The FunZ and Scan-to-Pay case studies use real app screens, and the Scan-to-Pay text names the OpenRouter model pipeline. Get FunZ's OK on both before the site goes live. Ladder visuals come from its public App Store listing and are labelled that way; only the FX flow is an illustrative mockup.
+- **Confidentiality.** The FunZ and Scan-to-Pay case studies use real app screens, and the Scan-to-Pay text names the OpenRouter model pipeline. Get FunZ's OK on both before the site goes live. Ladder visuals come from its public App Store listing and are labelled that way.
 - **Your own account details.** The Scan-to-Pay screens show your name, Zenith account number and handwriting. That's your call, but blur the middle digits if you'd rather not publish them.
 - **Ladder.** The Ladder studies describe internal details (FX layer, typed error codes, feature flags, analytics vendors). Get Ladder's OK, and never publish code, `env*.json` files or the Kochava trace logs from the repo.
 - **GitHub.** Visitors will click github.com/maykhid. Pin `liveness_flutter` and refresh the other pinned repos.
