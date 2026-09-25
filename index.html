@@ -580,6 +580,16 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
 .toon-bubble{right:62%;top:-14%}
 @media (max-width:900px){.toon{width:210px}.toon-bubble{right:80%;top:6%}}
 @media (max-width:420px){.toon{width:180px}}
+
+/* ---------- FunZ Business dive ---------- */
+.mock .sig{display:flex;justify-content:space-between;align-items:center;gap:6px;background:#fff;border:1px solid #E3E6F2;border-radius:10px;padding:7px 9px;font-size:10px;font-weight:600}
+.mock .sig em{font:700 9px/1 var(--mono);font-style:normal;padding:4px 6px;border-radius:6px}
+.mock .sig em.ok{background:#DDF7EC;color:#0B6B47}
+.mock .sig em.pend{background:#FFF1CC;color:#8A6200}
+.demo-steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:8px;color:#C9CFE6;font-size:15.5px}
+.demo-steps li::marker{color:var(--butter);font-family:var(--mono);font-weight:600}
+.also.two{grid-template-columns:repeat(2,1fr)}
+@media (max-width:640px){.also.two{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -879,6 +889,69 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
             </div>
           </div>
           <div class="dives">
+            <details class="dive" id="funz-business">
+              <summary>
+                <span class="dive-k">Deep dive</span>
+                <span class="dive-t">FunZ Business: a business account inside a consumer wallet</span>
+                <span class="dive-s">One signed-in person can switch between their personal wallet and a business account in the same app, with company onboarding and multi-person approval before business money moves.</span>
+                <span class="dive-cta"><span class="when-closed">Read the full story</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </summary>
+              <div class="dive-body">
+          <div class="cs-head">
+            <div class="p-visual" style="--tone:#FFD66B">
+              <div class="phone back"><div class="screen">
+                <img class="shot" src="img/funz-business.webp" alt="FunZ Business introduction screen with an Explore FunZ Business button" loading="lazy" decoding="async">
+              </div></div>
+              <div class="phone front" role="img" aria-label="Illustrative approval screen for a business transfer waiting on signatories"><div class="screen">
+                <div class="mock">
+                  <div class="s">Awaiting approval</div>
+                  <div class="t">₦2,500,000.00</div>
+                  <div class="lock"><span>Expires in</span><b>14:52</b></div>
+                  <div class="fxrow"><span>From</span><b>Acme Ltd ••4821</b></div>
+                  <div class="fxrow"><span>To</span><b>Sample Supplies ••0934</b></div>
+                  <div class="fxrow"><span>Purpose</span><b>Inventory</b></div>
+                  <div class="fxrow total"><span>Initiated by</span><b>T. Ade</b></div>
+                  <div class="sig"><span>A. Obi · Director</span><em class="ok">Approved</em></div>
+                  <div class="sig"><span>You · Director</span><em class="pend">Pending</em></div>
+                  <div class="card" style="background:#10142A;color:#fff;text-align:center;font:700 12px/1 var(--body);margin-top:auto">Approve with SMS code</div>
+                </div>
+              </div></div>
+              <span class="mocklabel">Back: FunZ app · Front: illustrative mockup</span>
+            </div>
+            <div>
+              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Riverpod</span><span class="tag">go_router</span><span class="tag">Freezed</span></div>
+              <p class="hook">I added a regulated business account to an existing consumer wallet: three types of Nigerian business registration, onboarding you can leave and resume, and multi-person approval before a payment goes out. No second app.</p>
+              <p class="meta"><span>Where:</span> FunZ · Lead Mobile Engineer · Lagos</p>
+            </div>
+          </div>
+          <div class="cs-body">
+            <div class="cell"><h4>Context</h4><p>FunZ was a personal wallet. The people who run businesses were already signed in to it as individuals.</p></div>
+            <div class="cell"><h4>Problem</h4><p>Give them a business account in the same app, so one person can move between their personal wallet and a business without a second login or a second download.</p></div>
+            <div class="cell"><h4>Constraints</h4><p>Nigerian businesses register in three different ways, each with its own documents. Onboarding requires the owner at KYC tier 3. Money leaving a business account needs sign-off from signatories. Personal-only features must never leak into a business session.</p></div>
+            <div class="cell full"><h4>What I built</h4>
+              <ul class="built">
+                <li><b>A business module of about 130 Dart files</b> covering onboarding, home, payments, approvals and team access, wired into the existing wallet.</li>
+                <li><b>One account context for the whole app.</b> Personal or business is stored per user and cleared if someone else signs in. Transfers, receipts and profile screens all read from it. If the business list hasn't loaded yet, the app shows the last known business name, bank and account number.</li>
+                <li><b>Business-mode guardrails.</b> Sending is bank transfer only; FunZ-tag transfers stay personal. An inactive business can't send money. A business with no transaction PIN gets a set-PIN sheet instead of a generic error. Receipts switch layout for business transactions.</li>
+                <li><b>Onboarding for three entity types:</b> Enterprise (BN), Corporate (RC) and Incorporated Trustee (IT), each with its own screens, controller and document pack, from CAC documents and board resolutions to SCUML certificates and MEMART. The first director is prefilled from the user's KYC.</li>
+                <li><b>Drafts you can resume.</b> Company details, documents and directors or trustees are saved to the server step by step. Coming back prefills what's stored and only uploads files that changed. Applications move through draft, needs revision and needs review.</li>
+                <li><b>Signatory approval before money leaves.</b> The business home counts transfers awaiting approval. The initiator can't approve their own. Each signatory is mandatory or optional, and approving or declining needs an SMS code. Reminders go to one signatory or everyone outstanding.</li>
+                <li><b>Team access</b> for corporate and trustee accounts: list, add and invite directors or trustees, including by FunZ tag, plus a join-business flow for people who receive an invite.</li>
+                <li><b>A business home</b> with its own account switcher, balance with a visibility toggle, send funds and an awaiting-approvals card, using the same selector pattern as the personal app.</li>
+              </ul>
+            </div>
+            <div class="cell half"><h4>Trade-offs</h4><p><strong style="color:var(--text)">The tax ID locks at submission.</strong> The TIN stays editable only while the application is a draft, because the server uses it as the business's unique identifier after that.</p><p><strong style="color:var(--text)">Three flows, not one engine.</strong> Enterprise, corporate and trustee onboarding are separate implementations with their own screens and controllers.</p><p style="color:var(--butter);font-size:14.5px">To add: why you kept the three flows separate, and one thing you'd change.</p></div>
+            <div class="cell half"><h4>Outcome</h4><p>Businesses run inside the same FunZ app as personal wallets. Onboarding for all three entity types, sending funds, the approval queue and team invites are live.</p><p style="color:var(--butter);font-size:14.5px">To add: businesses onboarded or transfers approved, if FunZ is happy to share.</p></div>
+            <div class="cell full"><h4>What I'd demo in an interview</h4>
+              <ol class="demo-steps">
+                <li>Switch from a personal account to a business, send money, and open the receipt.</li>
+                <li>Start a corporate application, leave, and come back to find documents and directors already filled in.</li>
+                <li>Open a payment waiting on signatories, first as the person who started it, then as a signatory approving or declining with an SMS code.</li>
+              </ol>
+            </div>
+          </div>
+              </div>
+            </details>
             <details class="dive" id="scan-to-pay">
               <summary>
                 <span class="dive-k">Deep dive</span>
@@ -927,12 +1000,11 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
               <summary>
                 <span class="dive-k">Deep dive</span>
                 <span class="dive-t">More from FunZ</span>
-                <span class="dive-s">FunZ Business, secure login, links that open the right screen, privacy-safe logs and repeatable releases.</span>
+                <span class="dive-s">Secure login, links that open the right screen, privacy-safe logs and repeatable releases.</span>
                 <span class="dive-cta"><span class="when-closed">See all</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </summary>
               <div class="dive-body">
-<div class="also">
-                <article class="mini span2"><span class="mini-where">Business</span><h3>FunZ Business, end to end</h3><p>A business version of the app: corporate and enterprise onboarding, directors and signatories, and PIN-protected business transfers.</p></article>
+<div class="also two">
                 <article class="mini"><span class="mini-where">Security</span><h3>Secure login</h3><p>Encrypted local storage with fingerprint, Face ID and PIN unlock.</p></article>
                 <article class="mini"><span class="mini-where">Navigation</span><h3>Links that land right</h3><p>App-wide routing with deep links that still open the right screen when the app starts from cold. Riverpod state across 55+ providers.</p></article>
                 <article class="mini"><span class="mini-where">Privacy</span><h3>Logs without secrets</h3><p>A logging layer that strips personal data and tokens before anything is written.</p></article>
