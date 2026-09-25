@@ -1,0 +1,1361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Henry Ifebunandu · Senior Mobile Engineer, Flutter &amp; Fintech</title>
+<meta name="description" content="Henry Ifebunandu is a senior mobile engineer in Lagos building Flutter payment apps for African fintech: card checkout, mobile money, bank mandates and KYC, built to keep working on unreliable networks.">
+<link rel="canonical" href="https://henryifebunandu.dev/">
+<meta name="theme-color" content="#0C0F1D">
+<!-- Open Graph / link previews (WhatsApp, LinkedIn, Slack, X) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://henryifebunandu.dev/">
+<meta property="og:title" content="Henry Ifebunandu · Senior Mobile Engineer">
+<meta property="og:description" content="I build Flutter apps that stay calm when the signal doesn't. Senior mobile engineer in Lagos.">
+<meta property="og:image" content="https://henryifebunandu.dev/og-image.png"><!-- 1200x630 -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- Structured data: helps Google show your name, role and profiles -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Henry Ifebunandu",
+  "jobTitle": "Senior Mobile Engineer",
+  "description": "Senior mobile engineer building Flutter payment apps for African fintech.",
+  "email": "mailto:henryifebunandu@gmail.com",
+  "url": "https://henryifebunandu.dev/",
+  "image": "https://henryifebunandu.dev/img/henry.webp",
+  "address": {"@type": "PostalAddress", "addressLocality": "Lagos", "addressCountry": "NG"},
+  "knowsAbout": ["Flutter", "Dart", "Mobile payments", "Fintech", "Mobile Money", "iOS", "Android"],
+  "sameAs": ["https://github.com/maykhid", "https://www.linkedin.com/in/henry-ifebunandu", "https://medium.com/@henryifebunandu", "https://pub.dev/packages/liveness_flutter"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme: dark;
+  --ink:#0C0F1D;
+  --ink-2:#141930;
+  --ink-3:#1C2240;
+  --line:#2A3156;
+  --text:#EEF1FA;
+  --muted:#9AA3C4;
+  --sky:#54C5F8;
+  --sky-deep:#1E88E5;
+  --coral:#FF7A59;
+  --butter:#FFD66B;
+  --mint:#5EE3B0;
+  --display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius:22px;
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--ink);color:var(--text);
+  font-family:var(--body);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0}
+.skip{position:absolute;left:-999px;top:12px;z-index:50;background:var(--butter);color:var(--ink);padding:10px 14px;border-radius:10px;font-weight:600}
+.skip:focus{left:16px}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:color-mix(in srgb,var(--ink) 82%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent);
+}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:20px}
+.logo-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--sky);color:var(--ink);font-size:16px;transform:rotate(-6deg)}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;
+  font:600 15px/1 var(--body);text-decoration:none;
+  padding:14px 20px;border-radius:999px;transition:transform .2s, box-shadow .2s, background .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--sky);color:var(--ink);box-shadow:0 6px 0 var(--sky-deep)}
+.btn-primary:hover{box-shadow:0 8px 0 var(--sky-deep)}
+.btn-primary:active{transform:translateY(3px);box-shadow:0 2px 0 var(--sky-deep)}
+.btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--muted)}
+.btn-sm{padding:10px 16px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.status{
+  display:inline-flex;align-items:center;gap:10px;font:500 13px/1.3 var(--mono);
+  color:var(--mint);background:color-mix(in srgb,var(--mint) 12%,transparent);
+  padding:9px 14px;border-radius:999px;
+}
+.status i{width:8px;height:8px;flex:none;border-radius:50%;background:var(--mint);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--mint) 60%,transparent)}80%,100%{box-shadow:0 0 0 10px transparent}}
+.hero h1{font-size:clamp(44px,6.2vw,84px);font-weight:800;margin-top:26px}
+.hl{position:relative;white-space:nowrap;color:var(--ink);padding-inline:.12em;display:inline-block;transform:rotate(-2deg);z-index:0}
+.hl::before{content:"";position:absolute;inset:.08em -.02em .02em;background:var(--butter);border-radius:.18em;z-index:-1}
+.lede{font-size:clamp(18px,1.6vw,21px);color:var(--muted);max-width:34em;margin-top:26px}
+.lede strong{color:var(--text);font-weight:600}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.elsewhere{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin-top:30px;font:500 14px/1 var(--mono);color:var(--muted)}
+.elsewhere a{text-decoration:none;color:var(--text);border-bottom:1.5px solid var(--line);padding-bottom:3px;transition:border-color .2s,color .2s}
+.elsewhere a:hover{color:var(--sky);border-color:var(--sky)}
+
+/* ---------- phone shell ---------- */
+.stage{position:relative;display:grid;place-items:center;padding-block:10px}
+.stage::before{
+  content:"";position:absolute;width:88%;aspect-ratio:1;max-width:100%;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--glow,var(--mint)) 38%,transparent),transparent 65%);
+  filter:blur(20px);transition:background .6s;
+}
+.stage.down{--glow:var(--coral)}
+.phone{
+  --w:300px;position:relative;width:var(--w);max-width:100%;aspect-ratio:9/19.2;
+  background:#05060C;border-radius:46px;padding:11px;
+  box-shadow:0 0 0 2px #2B3050,0 40px 80px -20px rgba(0,0,0,.7),inset 0 0 0 1px #3A4068;
+}
+.phone::after{content:"";position:absolute;top:21px;left:50%;transform:translateX(-50%);width:31%;height:24px;background:#05060C;border-radius:20px;z-index:3}
+.screen{position:relative;height:100%;border-radius:36px;overflow:hidden;background:#F6F7FB;color:#10142A}
+.hero .phone{animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+
+/* ---------- hero wallet demo ---------- */
+.app{height:100%;display:flex;flex-direction:column;font-family:var(--body)}
+.app-status{display:flex;justify-content:space-between;padding:16px 26px 0;font:600 12px/1 var(--body)}
+.app-status .sig{transition:opacity .3s}
+.stage.down .app-status .sig{opacity:.25}
+.app-body{flex:1;padding:30px 16px 12px;display:flex;flex-direction:column;gap:12px;min-height:0;overflow:auto}
+.app-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.app-title{font:800 20px/1.1 var(--display);letter-spacing:-.01em}
+.conn{display:inline-flex;align-items:center;gap:6px;font:600 10px/1 var(--mono);padding:6px 8px;border-radius:999px;background:#DDF7EC;color:#0B7A52;white-space:nowrap;transition:background .3s,color .3s}
+.conn i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.conn.beat i{animation:beat .5s ease-out}
+@keyframes beat{0%{transform:scale(2)}100%{transform:scale(1)}}
+.conn.retry{background:#FFF1CC;color:#8A6200}
+.conn.connecting{background:#E0F3FD;color:#0B5E8A}
+.bal{border-radius:20px;padding:16px;background:#10142A;color:#fff}
+.bal small{display:block;font-size:11px;color:#9AA3C4}
+.bal b{display:block;font:800 26px/1.1 var(--display);margin-top:4px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.bal .sync{display:block;margin-top:8px;font:500 10px/1 var(--mono);color:#5EE3B0}
+.stage.down .bal .sync{color:#FFD66B}
+.fund h4{font:700 13px/1 var(--body);letter-spacing:0}
+.fund .via{font-size:11px;color:#6A7094;margin-top:4px}
+.amts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px}
+.amt{border:1.5px solid #E3E6F2;background:#fff;border-radius:12px;padding:9px 0;font:700 12px/1 var(--mono);color:#10142A;cursor:pointer;font-variant-numeric:tabular-nums}
+.amt[aria-pressed="true"]{border-color:#10142A;background:#10142A;color:#fff}
+.go{margin-top:10px;width:100%;border:0;border-radius:14px;padding:13px;background:#54C5F8;color:#0C0F1D;font:700 13px/1 var(--body);cursor:pointer}
+.go:disabled{opacity:.5;cursor:default}
+.txn{border-radius:14px;padding:11px 12px;font-size:11.5px;line-height:1.4;background:#fff;border:1px solid #E3E6F2;min-height:52px}
+.txn b{display:block;font-size:12px}
+.txn.block{background:#FFE9E3;border-color:#FFC9BA;color:#8A2A12}
+.txn.wait{background:#E0F3FD;border-color:#BFE6FB;color:#0B4F75}
+.txn.stuck{background:#FFF6DA;border-color:#FFE39A;color:#6E5000}
+.txn.ok{background:#DDF7EC;border-color:#B4EDD6;color:#0B5E40}
+.txn .retrybtn{margin-top:8px;border:0;border-radius:10px;padding:8px 10px;background:#10142A;color:#fff;font:700 11px/1 var(--body);cursor:pointer}
+.spin{display:inline-block;width:10px;height:10px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-1px;margin-right:6px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tabbar{display:flex;justify-content:space-around;padding:12px 10px 22px;background:#fff;border-top:1px solid #E7E9F3}
+.tabbar i{width:22px;height:5px;border-radius:3px;background:#D5D8E8}
+.tabbar i.on{background:#10142A;width:34px}
+.toast{
+  position:absolute;left:50%;bottom:74px;transform:translate(-50%,20px);opacity:0;z-index:5;
+  background:#10142A;color:#fff;font:500 11px/1 var(--mono);padding:9px 12px;border-radius:10px;white-space:nowrap;
+  transition:.3s;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.netbtn{
+  position:absolute;right:max(0px,calc(50% - 215px));bottom:26%;z-index:6;
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  background:var(--coral);color:var(--ink);border:0;border-radius:16px;
+  padding:12px 16px;font:700 14px/1 var(--body);transform:rotate(6deg);
+  box-shadow:0 5px 0 #B94E33;transition:transform .15s, box-shadow .15s, background .2s;
+}
+.netbtn:hover{transform:rotate(3deg) translateY(-2px)}
+.netbtn:active{transform:rotate(3deg) translateY(3px);box-shadow:0 2px 0 #B94E33}
+.netbtn svg{width:16px;height:16px}
+.stage.down .netbtn{background:var(--mint);box-shadow:0 5px 0 #2FA57B}
+.stage-note{
+  position:absolute;left:max(0px,calc(50% - 235px));bottom:10%;z-index:6;
+  font:500 12px/1.45 var(--mono);color:var(--muted);background:var(--ink-2);border:1px solid var(--line);
+  padding:10px 12px;border-radius:12px;transform:rotate(-4deg);max-width:180px;
+}
+.stage-note b{color:var(--butter);font-weight:600}
+
+/* ---------- metrics ---------- */
+.metrics{border-block:1px solid var(--line);background:var(--ink-2)}
+.metrics .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{padding:28px 20px;border-left:1px solid var(--line)}
+.metric:first-child{border-left:0;padding-left:0}
+.metric b{display:block;font:800 clamp(32px,4vw,46px)/1 var(--display);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.metric span{display:block;margin-top:8px;font-size:14px;color:var(--muted);line-height:1.4}
+.metric:nth-child(1) b{color:var(--sky)}
+.metric:nth-child(2) b{color:var(--butter)}
+.metric:nth-child(3) b{color:var(--coral)}
+.metric:nth-child(4) b{color:var(--mint)}
+
+/* ---------- sections ---------- */
+section.block{padding-block:clamp(72px,10vw,120px)}
+section.tight{padding-top:0}
+.eyebrow{font:500 13px/1 var(--mono);color:var(--sky);letter-spacing:.02em}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,56px)}
+.sec-head h2{font-size:clamp(38px,5.4vw,68px);font-weight:800;margin-top:14px;max-width:14ch}
+.sec-head p{color:var(--muted);max-width:30em}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pillar{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+.pillar .rank{font:500 12px/1 var(--mono);color:var(--pc)}
+.pillar h3{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.pillar p{color:var(--muted);font-size:15px}
+.pillar:nth-child(1){--pc:var(--sky)}
+.pillar:nth-child(2){--pc:var(--butter)}
+.pillar:nth-child(3){--pc:var(--coral)}
+.pillar:nth-child(4){--pc:var(--mint)}
+.pillar::before{content:"";display:block;width:40px;height:6px;border-radius:3px;background:var(--pc)}
+
+/* ---------- case studies ---------- */
+.studies{display:flex;flex-direction:column;gap:32px}
+.cs{background:var(--ink-2);border:1px solid var(--line);border-radius:32px;padding:clamp(20px,4vw,44px);position:relative;overflow:hidden}
+.cs-head{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:clamp(24px,4vw,56px)}
+.cs:nth-child(even) .p-visual{order:2}
+.p-visual{position:relative;display:grid;place-items:center;border-radius:24px;padding-block:32px;background:var(--tone);overflow:hidden}
+.p-visual .phone{--w:230px;transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.p-visual .phone.back{position:absolute;--w:200px;transform:translateX(62%) rotate(9deg);opacity:.92}
+.cs:hover .p-visual .phone.front{transform:rotate(-4deg) translateY(-6px)}
+.cs:hover .p-visual .phone.back{transform:translateX(70%) rotate(13deg)}
+.p-visual .mocklabel{position:absolute;left:14px;bottom:12px;font:500 11px/1 var(--mono);color:rgba(12,15,29,.6)}
+.p-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font:500 12px/1 var(--mono);padding:7px 10px;border-radius:8px;background:var(--ink-3);color:var(--muted)}
+.tag.plat{background:transparent;border:1px solid var(--line)}
+.cs h3{font-size:clamp(30px,3.6vw,46px);font-weight:800;margin-top:18px}
+.cs .hook{color:var(--muted);margin-top:14px;max-width:34em;font-size:18px}
+.cs .meta{margin-top:18px;font-size:15px}
+.cs .meta span{color:var(--muted)}
+.sticker{position:absolute;top:22px;right:22px;z-index:2;font:700 12px/1 var(--body);background:var(--butter);color:var(--ink);padding:9px 12px;border-radius:999px;transform:rotate(8deg)}
+.cs:nth-child(even) .sticker{right:auto;left:22px;transform:rotate(-8deg)}
+
+.cs-body{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:clamp(24px,3vw,36px)}
+.cell{background:var(--ink);border:1px solid var(--line);border-radius:18px;padding:20px;grid-column:span 2}
+.cell.full{grid-column:span 6}
+.cell.half{grid-column:span 3}
+.cell h4{font:500 12px/1 var(--mono);color:var(--sky);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.cell p{color:#C9CFE6;font-size:15.5px}
+.cell p + p{margin-top:8px}
+.built{list-style:none;padding:0;margin:0;columns:2;column-gap:32px}
+.built li{break-inside:avoid;position:relative;padding-left:20px;margin-bottom:10px;font-size:15.5px;color:#C9CFE6}
+.built li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--sky);transform:rotate(45deg)}
+.built li b{color:var(--text);font-weight:600}
+.cell.draft{border:1.5px dashed color-mix(in srgb,var(--butter) 55%,transparent);background:color-mix(in srgb,var(--butter) 5%,var(--ink))}
+.cell.draft h4{color:var(--butter)}
+.cell.draft h4::after{content:"To fill in";margin-left:10px;padding:3px 7px;border-radius:6px;background:var(--butter);color:var(--ink);font-size:10px;letter-spacing:.04em}
+.cell.draft p{color:color-mix(in srgb,var(--butter) 70%,var(--muted));font-size:14.5px}
+
+/* mock screens */
+.mock{height:100%;display:flex;flex-direction:column;gap:10px;padding:40px 14px 14px;font-family:var(--body)}
+.mock .t{font:800 17px/1.1 var(--display)}
+.mock .s{font-size:10px;color:#6A7094}
+.mock .card{border-radius:14px;padding:12px}
+.mock .row{display:flex;align-items:center;gap:8px;padding:8px;border-radius:12px;background:#fff}
+.mock .dot{width:26px;height:26px;border-radius:9px;flex:none}
+.mock .lines{flex:1;display:flex;flex-direction:column;gap:5px}
+.mock .lines i{display:block;height:6px;border-radius:3px;background:#E3E6F2}
+.mock .lines i:first-child{width:70%;background:#C9CDE0}
+.mock .lines i:last-child{width:45%}
+.mock .amt-t{font:700 11px/1 var(--mono)}
+.mock .live{align-self:flex-start;font:600 9px/1 var(--mono);padding:5px 7px;border-radius:999px;background:#DDF7EC;color:#0B7A52}
+.chart{display:flex;align-items:end;gap:5px;height:54px}
+.chart i{flex:1;border-radius:4px 4px 2px 2px;background:currentColor;opacity:.85}
+.face{flex:1;display:grid;place-items:center;border-radius:16px;background:#10142A}
+.face span{width:62%;aspect-ratio:3/4;border-radius:50%;border:3px dashed #5EE3B0}
+.viewfinder{flex:1;position:relative;border-radius:16px;background:#2A2F45;display:grid;place-items:center;overflow:hidden}
+.paper{width:78%;background:#FFFBEF;border-radius:6px;padding:12px 10px;transform:rotate(-5deg);font:600 10px/1.5 var(--mono);color:#3A3320;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.paper u{text-decoration:none;background:rgba(84,197,248,.35);border-radius:3px;padding:0 2px}
+.corners{position:absolute;inset:18%;border:0;
+  background:
+    linear-gradient(#54C5F8,#54C5F8) 0 0/18px 3px no-repeat,linear-gradient(#54C5F8,#54C5F8) 0 0/3px 18px no-repeat,
+    linear-gradient(#54C5F8,#54C5F8) 100% 0/18px 3px no-repeat,linear-gradient(#54C5F8,#54C5F8) 100% 0/3px 18px no-repeat,
+    linear-gradient(#54C5F8,#54C5F8) 0 100%/18px 3px no-repeat,linear-gradient(#54C5F8,#54C5F8) 0 100%/3px 18px no-repeat,
+    linear-gradient(#54C5F8,#54C5F8) 100% 100%/18px 3px no-repeat,linear-gradient(#54C5F8,#54C5F8) 100% 100%/3px 18px no-repeat}
+.field{background:#fff;border:1px solid #E3E6F2;border-radius:10px;padding:7px 9px}
+.field small{display:block;font-size:8.5px;color:#6A7094}
+.field span{font:700 11px/1.3 var(--mono)}
+.field.filled{border-color:#54C5F8;background:#F0FAFF}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.tiles div{background:#fff;border-radius:14px;padding:12px 10px;font:700 11px/1.2 var(--body)}
+.tiles div i{display:block;width:22px;height:22px;border-radius:8px;margin-bottom:8px}
+.pinrow{display:flex;justify-content:center;gap:8px}
+.pinrow i{width:12px;height:12px;border-radius:50%;background:#10142A}
+.pinrow i.e{background:#E3E6F2}
+
+/* ---------- stack ---------- */
+.stack{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.group{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:var(--ink-2)}
+.group h3{font:500 14px/1 var(--mono);color:var(--gc,var(--sky));letter-spacing:0}
+.group h3::before{content:"// "}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-size:14px;font-weight:500;padding:8px 12px;border-radius:10px;background:var(--ink-3)}
+.group:nth-child(6n+1){--gc:var(--sky)}
+.group:nth-child(6n+2){--gc:var(--butter)}
+.group:nth-child(6n+3){--gc:var(--coral)}
+.group:nth-child(6n+4){--gc:var(--mint)}
+.group:nth-child(6n+5){--gc:var(--sky)}
+.group:nth-child(6n+6){--gc:var(--butter)}
+
+/* ---------- experience ---------- */
+.timeline{list-style:none;padding:0;margin:0;display:flex;flex-direction:column}
+.job{display:grid;grid-template-columns:200px 1fr;gap:24px;padding-block:26px;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job time{font:500 13px/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.job time span{display:block;color:#6E77A0}
+.job h3{font-size:24px;font-weight:700;letter-spacing:-.01em}
+.job h3 span{color:var(--muted);font-weight:500}
+.job p{color:var(--muted);font-size:15.5px;margin-top:8px;max-width:44em}
+.earlier{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}
+.earlier li{list-style:none;background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.earlier ul{padding:0;margin:0;display:contents}
+.earlier b{display:block;font:700 17px/1.2 var(--display);letter-spacing:-.01em}
+.earlier b span{font:500 12px/1 var(--mono);color:var(--muted);margin-left:6px}
+.earlier p{font-size:14.5px;margin-top:6px}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,72px);align-items:start}
+.portrait{
+  position:relative;aspect-ratio:4/5;max-width:100%;border-radius:28px;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 38%,#2A3368 0 22%,transparent 22.5%),
+    radial-gradient(ellipse at 50% 100%,#2A3368 0 42%,transparent 42.5%),
+    linear-gradient(160deg,var(--sky-deep),#3B2A8C);
+  transform:rotate(-2deg);
+}
+.portrait span{position:absolute;left:16px;bottom:16px;font:500 12px/1 var(--mono);background:var(--ink);padding:8px 10px;border-radius:8px;color:var(--muted)}
+.about-copy h2{font-size:clamp(38px,5.4vw,68px);font-weight:800;margin:14px 0 26px}
+.about-copy > p{color:var(--muted);font-size:18px;max-width:36em}
+.about-copy > p + p{margin-top:16px}
+.about-copy strong{color:var(--text);font-weight:600}
+.creds{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-direction:column;gap:10px}
+.creds li{display:flex;gap:14px;align-items:baseline;font-size:15.5px}
+.creds li span{font:500 12px/1 var(--mono);color:var(--butter);min-width:80px}
+.pubspec{margin-top:28px;border:1px solid var(--line);border-radius:var(--radius);background:#080A14;overflow-x:auto}
+.pubspec pre{margin:0;padding:22px 24px;font:14px/1.7 var(--mono);color:#C5CBE3}
+.pubspec .k{color:var(--sky)} .pubspec .v{color:var(--butter)} .pubspec .c{color:#5E6690}
+
+/* ---------- contact ---------- */
+.contact{padding-block:clamp(72px,10vw,120px)}
+.contact-card{background:var(--sky);color:var(--ink);border-radius:40px;padding:clamp(28px,6vw,72px);position:relative;overflow:hidden}
+.contact-card::after{content:"";position:absolute;right:-80px;bottom:-120px;width:360px;aspect-ratio:1;border-radius:50%;background:var(--butter);opacity:.9}
+.contact-card > *{position:relative;z-index:1}
+.contact-card h2{font-size:clamp(44px,7vw,92px);font-weight:800;max-width:13ch}
+.contact-card > p{font-size:19px;margin-top:20px;max-width:34em}
+.contact-card .looking{margin-top:16px;border:2px dashed rgba(12,15,29,.45);border-radius:16px;padding:14px 16px;font-size:16px;max-width:40em}
+.contact-card .looking b{font:700 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:var(--butter);padding:4px 7px;border-radius:6px;margin-right:8px}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:30px}
+.email{font:600 clamp(16px,2.2vw,24px)/1.2 var(--mono);background:var(--ink);color:var(--text);padding:18px 22px;border-radius:18px;user-select:all;overflow-wrap:anywhere;max-width:100%}
+.copy{background:var(--ink);color:var(--butter);box-shadow:0 5px 0 #03050C}
+.tz{margin-top:22px;font:500 14px/1.5 var(--mono)}
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.socials a{text-decoration:none;font:600 15px/1 var(--body);padding:12px 16px;border-radius:999px;border:2px solid var(--ink);transition:background .2s,color .2s}
+.socials a:hover{background:var(--ink);color:var(--sky)}
+footer{padding-block:0 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* ---------- entrance ---------- */
+.rise{animation:rise .8s cubic-bezier(.2,.9,.3,1.2) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}
+@keyframes rise{from{transform:translateY(24px)}to{transform:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1060px){
+  .pillars{grid-template-columns:1fr 1fr}
+}
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr}
+  .cs-head{grid-template-columns:1fr}
+  .cs:nth-child(even) .p-visual{order:0}
+  .cell,.cell.half{grid-column:span 6}
+  .stack{grid-template-columns:1fr 1fr}
+  .about{grid-template-columns:1fr}
+  .portrait{max-width:340px}
+  .nav-links{display:none}
+  .job{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .metrics .wrap{grid-template-columns:1fr 1fr}
+  .metric{padding:22px 0;border-left:0;border-top:1px solid var(--line)}
+  .metric:nth-child(-n+2){border-top:0}
+  .metric:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+  .pillars,.stack,.earlier{grid-template-columns:1fr}
+  .built{columns:1}
+  .phone{--w:270px}
+  .netbtn{right:0;bottom:20%}
+  .stage-note{position:static;transform:rotate(-2deg);margin-top:18px;max-width:none}
+  .p-visual .phone{--w:190px}
+  .p-visual .phone.back{--w:165px}
+  .hl{white-space:normal}
+  .sticker{top:14px;right:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+.about > *,.hero .wrap > *,.cs-head > *{min-width:0}
+.screen img.shot{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+
+/* ---------- FX mock ---------- */
+.lock{display:flex;justify-content:space-between;align-items:center;background:#FFE9E3;color:#8A2A12;border-radius:12px;padding:8px 10px;font:600 10px/1 var(--mono)}
+.lock b{font:800 13px/1 var(--mono);font-variant-numeric:tabular-nums}
+.fxrow{display:flex;justify-content:space-between;gap:8px;padding:7px 2px;border-bottom:1px dashed #E3E6F2;font-size:10.5px;color:#6A7094}
+.fxrow b{font:700 11px/1.2 var(--mono);color:#10142A;font-variant-numeric:tabular-nums}
+.fxrow.total{border-bottom:0}
+.fxrow.total b{font-size:13px}
+.fxcard{background:#fff;border:1px solid #E3E6F2;border-radius:12px;padding:10px}
+.fxcard small{display:block;font-size:9px;color:#6A7094}
+.fxcard s,.fxcard b{font:700 12px/1.4 var(--mono)}
+.fxcard s{color:#8A90B0}
+.fxcard.on{border-color:#FF7A59;background:#FFF4F0}
+.built code{font:500 .9em/1 var(--mono);background:var(--ink-3);padding:2px 6px;border-radius:6px;color:var(--butter)}
+
+/* ---------- also shipped ---------- */
+.also{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--ink-2);display:flex;flex-direction:column;gap:12px}
+.mini h3{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.mini > p,.mini-copy > p{color:var(--muted);font-size:15.5px}
+.mini-where{font:500 12px/1.3 var(--mono);color:var(--sky)}
+.mini.wide{grid-column:1 / -1;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:center;padding:clamp(24px,4vw,40px)}
+.mini-copy{display:flex;flex-direction:column;gap:12px}
+.mini-copy .built{columns:1;margin-top:6px}
+.mini-shots{display:flex;justify-content:center;gap:16px;background:#FFD66B;border-radius:20px;padding:28px 16px}
+.mini-shots .phone{--w:170px;border-radius:30px;padding:8px}
+.mini-shots .phone::after{top:15px;height:16px}
+.mini-shots .screen{border-radius:23px}
+.mini-shots .phone:nth-child(2){transform:translateY(22px) rotate(4deg)}
+.sse{margin-top:auto;display:flex;flex-direction:column;gap:4px;background:#080A14;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:12px/1.5 var(--mono);color:#C5CBE3;overflow-x:auto}
+.sse span{white-space:nowrap}
+.sse .cur{color:var(--mint);animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:.3}}
+.swatches{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sw{background:#fff;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px}
+.sw span{font:800 28px/1 var(--display)}
+.sw small{font:600 11px/1 var(--mono);color:#10142A}
+.sw:first-child small{color:#B3261E}
+.sw:last-child small{color:#0B6B47}
+@media (max-width:960px){
+  .also{grid-template-columns:1fr 1fr}
+  .mini.wide{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .also{grid-template-columns:1fr}
+  .mini-shots .phone{--w:130px}
+}
+
+/* ---------- open source card ---------- */
+.oss-panel{background:#080A14;border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.term{font:13px/1.5 var(--mono);color:#C5CBE3;background:var(--ink-2);border-radius:10px;padding:10px 12px;overflow-x:auto;white-space:nowrap}
+.term .c{color:var(--mint)}
+.seq-label{font:500 11px/1 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.seq{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;counter-reset:s}
+.seq li{counter-increment:s;display:flex;align-items:center;gap:8px;font:600 14px/1 var(--body);padding:10px 12px;border-radius:12px;background:var(--ink-3);color:var(--muted)}
+.seq li::before{content:counter(s);font:600 11px/1 var(--mono);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--line);color:var(--text)}
+.seq li.done{color:var(--text)}
+.seq li.done::before{content:"✓";background:var(--mint);color:var(--ink)}
+.seq li.now{background:var(--butter);color:var(--ink)}
+.seq li.now::before{background:var(--ink);color:var(--butter)}
+.oss-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-top:14px;border-top:1px dashed var(--line)}
+.oss-stats b{display:block;font:800 20px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.oss-stats b small{font-size:13px;color:var(--muted);font-weight:600}
+.oss-stats span{display:block;margin-top:6px;font:500 10px/1.2 var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.oss .p-links{margin-top:6px}
+.also > *,.mini.wide > *{min-width:0}
+.mini.span2{grid-column:span 2}
+.mini.span2 .sse{margin-top:4px}
+@media (max-width:640px){.mini.span2{grid-column:auto}}
+.oss h3{font:700 clamp(28px,3.4vw,40px)/1.1 var(--mono);letter-spacing:-.02em;color:var(--sky)}
+.oss{border-color:color-mix(in srgb,var(--sky) 45%,var(--line))}
+img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:var(--ink-2);box-shadow:0 30px 60px -25px rgba(0,0,0,.7);outline:6px solid var(--ink-3);outline-offset:-6px}
+@media (min-width:961px){.about img.portrait{position:sticky;top:100px}}
+.stat-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-pair b{display:block;font:800 clamp(26px,2.6vw,34px)/1.1 var(--display);color:var(--mint);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat-pair span{display:block;margin-top:6px;font-size:14.5px;color:#C9CFE6;line-height:1.45}
+.contact-card .tz{font-weight:600}
+@media (max-width:640px){.stat-pair{grid-template-columns:1fr}}
+
+/* ---------- store screenshots ---------- */
+.p-visual .shotcard{--w:210px;width:var(--w);max-width:60%;height:auto;display:block;border-radius:22px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.p-visual .shotcard.front{transform:translateX(-24%) rotate(-3deg);position:relative;z-index:1}
+.p-visual .shotcard.back{position:absolute;--w:185px;transform:translateX(42%) rotate(7deg)}
+.cs:hover .p-visual .shotcard.front{transform:translateX(-26%) rotate(-5deg) translateY(-6px)}
+.cs:hover .p-visual .shotcard.back{transform:translateX(48%) rotate(10deg)}
+.gallery{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.gallery img{flex:none;width:150px;height:auto;border-radius:16px;scroll-snap-align:start;border:1px solid var(--line)}
+.mini.ai{display:grid;grid-template-columns:1fr 150px;gap:20px;align-items:start}
+.ai-copy{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ai-copy > p{color:var(--muted);font-size:15.5px}
+.ai-shot{width:150px;height:auto;border-radius:16px;border:1px solid var(--line)}
+@media (max-width:640px){
+  .mini.ai{grid-template-columns:1fr}
+  .ai-shot{width:140px}
+  .p-visual .shotcard{--w:170px}
+  .p-visual .shotcard.back{--w:150px}
+}
+
+/* ---------- plain-English layer ---------- */
+.pillar .under{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);font:500 12px/1.6 var(--mono);color:#6E77A0}
+.inshort{margin-top:16px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;font-size:16.5px;line-height:1.5;color:var(--text);max-width:34em}
+.inshort b{font:700 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;background:var(--butter);color:var(--ink);padding:5px 8px;border-radius:6px;transform:translateY(-2px)}
+.stage-note{position:static!important;transform:rotate(-1.5deg)!important;margin-top:26px;max-width:360px!important;font:500 13px/1.55 var(--body)!important;padding:12px 14px!important;color:#C9CFE6!important}
+.stage-note b{color:var(--butter)}
+
+.phone-wrap{position:relative;max-width:100%}
+.netbtn{right:-64px!important;bottom:24%!important;top:auto!important}
+.cs:nth-child(even) .sticker{left:auto;right:22px;transform:rotate(8deg)}
+@media (max-width:640px){.netbtn{right:-8px!important;bottom:18%!important}}
+
+/* ---------- app cards + deep dives ---------- */
+.app > .cs-head h3{font-size:clamp(44px,5.4vw,68px)}
+.app-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px;padding-top:18px;border-top:1px dashed var(--line)}
+.app-stats b{display:block;font:800 clamp(22px,2.2vw,28px)/1.1 var(--display);color:var(--mint);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.app-stats span{display:block;margin-top:6px;font-size:13.5px;color:var(--muted);line-height:1.4}
+.dives{display:flex;flex-direction:column;gap:12px;margin-top:clamp(20px,3vw,32px)}
+.dive{border:1px solid var(--line);border-radius:20px;background:var(--ink);transition:border-color .2s}
+.dive:hover,.dive[open]{border-color:color-mix(in srgb,var(--sky) 55%,var(--line))}
+.dive > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;grid-template-areas:"k cta" "t cta" "s cta";column-gap:20px;row-gap:6px;align-items:center;padding:20px 22px;border-radius:20px}
+.dive > summary::-webkit-details-marker{display:none}
+.dive-k{grid-area:k;font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--sky)}
+.dive-t{grid-area:t;font:800 clamp(20px,2.2vw,26px)/1.15 var(--display);letter-spacing:-.01em;color:var(--text)}
+.dive-s{grid-area:s;color:var(--muted);font-size:15.5px;max-width:52em}
+.dive-cta{grid-area:cta;display:inline-flex;align-items:center;gap:8px;font:600 14px/1 var(--body);color:var(--ink);background:var(--sky);padding:11px 14px;border-radius:999px;white-space:nowrap;box-shadow:0 4px 0 var(--sky-deep)}
+.dive-cta svg{width:16px;height:16px;transition:transform .25s}
+.dive .when-open{display:none}
+.dive[open] .when-open{display:inline}
+.dive[open] .when-closed{display:none}
+.dive[open] .dive-cta{background:var(--ink-3);color:var(--text);box-shadow:none}
+.dive[open] .dive-cta svg{transform:rotate(180deg)}
+.dive-body{padding:4px 22px 24px;border-top:1px dashed var(--line);margin-top:4px}
+.dive-body > .cs-head{margin-top:20px}
+.dive-body > .cs-body{margin-top:20px}
+.dive-body > .also{margin-top:20px}
+.dive-body .p-visual{padding-block:24px}
+.dive[open] .dive-body{animation:diveIn .35s ease-out}
+@keyframes diveIn{from{transform:translateY(-6px)}to{transform:none}}
+.app .cs-body .cell.full:only-child{grid-column:1 / -1}
+@media (max-width:640px){
+  .dive > summary{grid-template-columns:1fr;grid-template-areas:"k" "t" "s" "cta";padding:18px}
+  .dive-cta{justify-self:start;margin-top:8px}
+  .dive-body{padding:4px 14px 18px}
+  .app-stats{grid-template-columns:1fr 1fr}
+}
+
+/* ---------- cartoon ---------- */
+.contact-card{padding-right:clamp(28px,6vw,72px)}
+.contact-card::after{right:-40px;bottom:-150px;width:400px}
+.toon{position:absolute!important;right:clamp(12px,4vw,56px);bottom:0;width:clamp(200px,22vw,270px);margin:0;z-index:2}
+.toon svg{display:block;width:100%;height:auto;transition:transform .4s cubic-bezier(.3,1.4,.5,1);transform-origin:50% 100%}
+.contact-card:hover .toon svg{transform:translateY(-6px) rotate(-2deg)}
+.toon-bubble{position:absolute;right:88%;top:4%;width:max-content;max-width:190px;margin:0;background:var(--ink);color:var(--text);font:600 14px/1.35 var(--body);padding:12px 14px;border-radius:16px 16px 4px 16px;transform:rotate(-4deg);box-shadow:0 10px 24px -10px rgba(0,0,0,.6)}
+.toon .lid{transform-box:fill-box;transform-origin:50% 0;transform:scaleY(0);animation:blink 5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(0)}96%,98%{transform:scaleY(1)}}
+.contact-card > h2,.contact-card > p,.contact-card > .email-row,.contact-card > .socials{max-width:min(640px,62%)}
+@media (max-width:900px){
+  .contact-card > h2,.contact-card > p,.contact-card > .email-row,.contact-card > .socials{max-width:none}
+  .contact-card{padding-bottom:0}
+  .toon{position:relative!important;right:auto;bottom:auto;width:200px;margin:28px 0 0 auto}
+  .toon-bubble{right:92%;top:10%}
+}
+@media (max-width:420px){.toon{width:170px}.toon-bubble{font-size:13px;max-width:150px}}
+.toon{width:clamp(220px,24vw,300px)}
+.toon-bubble{right:62%;top:-14%}
+@media (max-width:900px){.toon{width:210px}.toon-bubble{right:80%;top:6%}}
+@media (max-width:420px){.toon{width:180px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Henry Ifebunandu, home"><span class="logo-mark">HI</span>Henry</a>
+    <nav aria-label="Main">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#open-source">Open source</a></li>
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="status rise"><i></i>Open to senior &amp; lead roles · Lagos, UTC+1</span>
+        <h1 class="rise d1">I build Flutter apps that stay <span class="hl">calm</span> when the signal doesn't.</h1>
+        <p class="lede rise d2">I'm <strong>Henry Ifebunandu</strong>, a senior mobile engineer in Lagos. Most of my work is fintech: payments, cross-border FX and KYC for users in Nigeria and Ghana, on networks that drop without warning. I've been the lead or primary engineer on two production apps, including a ground-up rewrite that replaced the live product.</p>
+        <div class="hero-ctas rise d3">
+          <a class="btn btn-primary" href="mailto:henryifebunandu@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="#work">See my work</a>
+        </div>
+        <div class="elsewhere rise d4">
+          <a href="https://github.com/maykhid">GitHub</a>
+          <a href="https://www.linkedin.com/in/henry-ifebunandu">LinkedIn</a>
+          <a href="https://medium.com/@henryifebunandu">Medium</a>
+          <a href="https://pub.dev/packages/liveness_flutter">liveness_flutter on pub.dev</a>
+        </div>
+      </div>
+
+      <div class="stage" id="stage">
+        <!-- LIVE DEMO SLOT: this HTML wallet is a lightweight stand-in.
+             To show a real Flutter build instead, replace the .screen contents with:
+             <iframe src="/demos/wallet/" title="Wallet demo built in Flutter" loading="lazy" style="width:100%;height:100%;border:0"></iframe> -->
+        <div class="phone-wrap">
+        <div class="phone">
+          <div class="screen">
+            <div class="app">
+              <div class="app-status"><span>9:41</span><span class="sig">●●● 4G</span></div>
+              <div class="app-body">
+                <div class="app-top">
+                  <div class="app-title">Wallet</div>
+                  <span class="conn" id="conn"><i></i><span id="connText">Live</span></span>
+                </div>
+                <div class="bal">
+                  <small>Available balance</small>
+                  <b id="bal">₦482,150.00</b>
+                  <span class="sync" id="sync">Synced just now</span>
+                </div>
+                <div class="fund">
+                  <h4>Fund with Mobile Money</h4>
+                  <div class="via">Tier 1 account · limit ₦50,000 per transaction</div>
+                  <div class="amts" id="amts">
+                    <button class="amt" type="button" data-v="5000" aria-pressed="true">₦5,000</button>
+                    <button class="amt" type="button" data-v="20000" aria-pressed="false">₦20,000</button>
+                    <button class="amt" type="button" data-v="80000" aria-pressed="false">₦80,000</button>
+                  </div>
+                  <button class="go" id="go" type="button">Fund wallet</button>
+                </div>
+                <div class="txn" id="txn" role="status" aria-live="polite"><b>Ready</b>Pick an amount. Try ₦80,000 too.</div>
+              </div>
+              <div class="tabbar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="toast" id="toast" role="status" aria-live="polite"></div>
+          </div>
+        </div>
+        <button class="netbtn" id="net" type="button" aria-pressed="false">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 5.5a10 10 0 0 1 14 0M3.5 8.5a6.5 6.5 0 0 1 9 0M6 11.3a3 3 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="13.6" r="1.1" fill="currentColor"/></svg><span id="netText">Drop the network</span>
+        </button>
+        </div>
+        <p class="stage-note"><b>Try it.</b> Tap "Drop the network", then "Fund wallet". The app keeps your balance on screen and waits for the payment instead of failing. Pick ₦80,000 to see a payment stopped before it starts, because it's over the account's limit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FACTS ================= -->
+  <section class="metrics" aria-label="At a glance">
+    <div class="wrap">
+      <div class="metric"><b>6+</b><span>years building mobile apps with Flutter, since 2019</span></div>
+      <div class="metric"><b>2</b><span>live finance apps where I was the lead or main engineer</span></div>
+      <div class="metric"><b>4</b><span>ways to pay built in: cards, mobile money, direct debit and bank transfers</span></div>
+      <div class="metric"><b>3</b><span>currencies handled in one app: naira, cedi and dollar</span></div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Work</span>
+          <h2>Two finance apps, end to end</h2>
+        </div>
+        <p>Start with the app. Open any deep dive for the full story, from the problem to the trade-offs and the outcome. FunZ screens are from the shipped app, Ladder's come from its public App Store listing, and the FX flow is an illustrative mockup.</p>
+      </div>
+
+      <div class="studies">
+        <!-- ===== App 1: Ladder ===== -->
+        <article class="cs app" id="ladder">
+          <span class="sticker">Live in Nigeria &amp; Ghana</span>
+          <div class="cs-head">
+            <div class="p-visual" style="--tone:#5EE3B0">
+              <img class="shotcard back" src="img/ladder-invest.webp" alt="Ladder App Store screenshot: investment portfolio in cedis with a Switch to USD button" loading="lazy" decoding="async">
+              <img class="shotcard front" src="img/ladder-home.webp" alt="Ladder App Store screenshot: home screen showing portfolio value in cedis with the naira equivalent" loading="lazy" decoding="async">
+              <span class="mocklabel">From Ladder's App Store listing</span>
+            </div>
+            <div>
+              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Riverpod</span><span class="tag">GetIt</span><span class="tag">WebSockets</span><span class="tag">Shorebird</span></div>
+              <h3>Ladder</h3>
+              <p class="hook">A personal-finance app for Nigeria and Ghana: save, invest, budget and get help from an AI assistant.</p>
+              <p class="inshort"><b>In short</b>I rebuilt the whole app from scratch and replaced the old version while people were using it. The store rating went up after launch.</p>
+              <p class="meta"><span>Role:</span> Mobile Engineer, primary engineer on v2.0 · <span>Sep 2025 – present</span> · remote from Lagos</p>
+              <div class="app-stats">
+                <div><b>27K+</b><span>active users, per the App Store listing</span></div>
+                <div><b>2</b><span>countries: Nigeria and Ghana</span></div>
+                <div><b>3</b><span>currencies: naira, cedi and dollar</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="cs-body">
+            <div class="cell full"><h4>From the App Store listing</h4>
+              <div class="gallery">
+                <img src="img/ladder-savings.webp" alt="Savings plans: Flex Savings, Goal Savings and Ladder Lock" decoding="async">
+                <img src="img/ladder-budget.webp" alt="Spending: track expenses, set budgets, get insights" decoding="async">
+                <img src="img/ladder-emergency.webp" alt="Emergency fund setup in cedis with 3, 4 or 6 months of cover" decoding="async">
+                <img src="img/ladder-invest.webp" alt="Investment portfolio with Switch to USD" decoding="async">
+                <img src="img/ladder-lady.webp" alt="Lady, the in-app financial assistant" decoding="async">
+                <img src="img/ladder-brand.webp" alt="Ladder: Save, Invest, Spend" decoding="async">
+              </div>
+            </div>
+          </div>
+          <div class="dives">
+            <details class="dive" id="fx">
+              <summary>
+                <span class="dive-k">Deep dive</span>
+                <span class="dive-t">Letting a Ghanaian buy a Nigerian IPO</span>
+                <span class="dive-s">People in Ghana can invest in Nigerian IPOs in their own currency, and always pay the exact rate they agreed to.</span>
+                <span class="dive-cta"><span class="when-closed">Read the full story</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </summary>
+              <div class="dive-body">
+<div class="cs-head">
+            <div class="p-visual" style="--tone:#FF7A59">
+              <div class="phone back" aria-hidden="true"><div class="screen">
+                <div class="mock">
+                  <div class="t">Quote expired</div>
+                  <div class="s">Rates moved while you were paying</div>
+                  <div class="fxcard" style="margin-top:6px"><small>Old rate</small><s>GH₵1 = ₦128.40</s></div>
+                  <div class="fxcard on"><small>New rate</small><b>GH₵1 = ₦127.95</b></div>
+                  <div class="card" style="background:#10142A;color:#fff;text-align:center;font:700 12px/1 var(--body);margin-top:auto">Review new quote</div>
+                </div>
+              </div></div>
+              <div class="phone front" role="img" aria-label="Illustrative screen buying Nigerian IPO units in cedis at a locked exchange rate"><div class="screen">
+                <div class="mock">
+                  <div class="s">Buy IPO units</div>
+                  <div class="t">NG Tech IPO</div>
+                  <div class="lock"><span>Rate locked</span><b>00:42</b></div>
+                  <div class="fxrow"><span>You pay</span><b>GH₵ 1,000.00</b></div>
+                  <div class="fxrow"><span>Rate</span><b>GH₵1 = ₦128.40</b></div>
+                  <div class="fxrow"><span>Fee</span><b>GH₵ 7.50</b></div>
+                  <div class="fxrow total"><span>You get</span><b>₦127,437.00</b></div>
+                  <div class="card" style="background:#FF7A59;color:#0C0F1D;text-align:center;font:700 12px/1 var(--body);margin-top:auto">Confirm purchase</div>
+                </div>
+              </div></div>
+              <span class="mocklabel">Illustrative mockup · example rates</span>
+            </div>
+            <div>
+              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Locked quotes</span><span class="tag">Typed error codes</span><span class="tag">Dio</span></div>
+              <p class="hook">A user in Accra pays in cedis for IPO units priced in naira, at a rate that can't change under them halfway through paying.</p>
+              <p class="meta"><span>Where:</span> Ladder · Mobile Engineer · Nigeria &amp; Ghana</p>
+            </div>
+          </div>
+<div class="cs-body">
+            <div class="cell"><h4>Context</h4><p>Ladder lets people in Nigeria and Ghana invest, save, budget and withdraw across three currencies: naira, cedi and dollar.</p></div>
+            <div class="cell"><h4>Problem</h4><p>Currency conversion had been written by hand in at least five different widgets. A cross-border purchase needs one rate that the user sees, agrees to and actually pays.</p></div>
+            <div class="cell"><h4>Constraints</h4><p>Quotes expire, sometimes while the user is mid-payment. Fees must be right before the user commits. Error messages are written for people and can change, so code can't branch on them.</p></div>
+            <div class="cell full"><h4>What I built</h4>
+              <ul class="built">
+                <li><b>One FX layer</b> for naira, cedi and dollar, replacing the conversion code copied across five or more widgets.</li>
+                <li><b>Locked quotes</b>, so the rate the user confirms is the rate they pay.</li>
+                <li><b>Fee calculation</b> inside the same layer, shown before the user commits.</li>
+                <li><b>Quote-expiry recovery.</b> If a quote runs out mid-payment, the user gets a fresh quote and confirms it again.</li>
+                <li><b>Typed error codes.</b> The app branches on the error <code>code</code>, never on the message text.</li>
+                <li><b>Tests on FX quotes and fees</b>, including a walkthrough test that steps through the whole lock flow.</li>
+              </ul>
+            </div>
+            <div class="cell half"><h4>Trade-offs</h4><p><strong style="color:var(--text)">One layer, not five copies.</strong> Pulling conversion out of the widgets took a refactor across the app, but now there's one place to get fees and rounding right.</p><p><strong style="color:var(--text)">Codes over messages.</strong> A backend team can reword an error without breaking the app's recovery logic.</p><p><strong style="color:var(--text)">Re-confirm, never re-price quietly.</strong> When a quote expires, the user sees the new rate and confirms it again. It costs one extra tap, but nobody pays a rate they didn't agree to.</p></div>
+            <div class="cell half"><h4>Outcome</h4><p>A Ghanaian user can buy Nigerian IPO units at a locked cross-border rate. Conversion now lives in one tested layer instead of five widgets.</p><p>Cross-border buying is still rolling out, so there are no volume numbers to share yet.</p></div>
+          </div>
+              </div>
+            </details>
+            <details class="dive" id="rewrite">
+              <summary>
+                <span class="dive-k">Deep dive</span>
+                <span class="dive-t">Replacing a live fintech app</span>
+                <span class="dive-s">Rebuilding Ladder from the ground up while v1 was live and holding real users' money.</span>
+                <span class="dive-cta"><span class="when-closed">Read the full story</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </summary>
+              <div class="dive-body">
+<div class="cs-body">
+            <div class="cell"><h4>Context</h4><p>Ladder is a personal-finance app for Nigeria and Ghana covering investments, savings, budgeting, withdrawals and an AI assistant. v1 was live and holding users' money.</p></div>
+            <div class="cell"><h4>Problem</h4><p>Build a v2.0 that replaces v1 in production instead of running beside it, across auth, KYC, savings, investments, budgeting and chat.</p></div>
+            <div class="cell"><h4>Constraints</h4><p>Unreliable mobile networks. Two countries with different rails, rules and rollout timing. Tiered KYC limits. A codebase that grew to about 556 Dart files.</p></div>
+            <div class="cell full"><h4>What I built</h4>
+              <ul class="built">
+                <li><b>Architecture</b> on Riverpod + GetIt, with separate development, staging and production builds, each on its own Firebase project.</li>
+                <li><b>WebSocket layer</b> with heartbeat and exponential backoff, so balances stay live on bad networks instead of failing silently.</li>
+                <li><b>Payments:</b> Flutterwave card checkout with redirect and callback handling, Mobile Money with polled verification and manual retry, and NGN bank mandates with OTP for direct debit and auto-invest.</li>
+                <li><b>One funding and withdrawal flow</b> shared by savings and investments, with KYC tier limits checked before a transaction starts.</li>
+                <li><b>Compile-time feature flags</b> so a feature can ship in one country before the other.</li>
+                <li><b>Networking</b> on Dio, with interceptors for auth, cURL logging and error reporting.</li>
+                <li><b>Release tooling:</b> a makefile for builds and Shorebird over-the-air patches, plus git hooks that bump the version automatically.</li>
+              </ul>
+            </div>
+            <div class="cell full"><h4>Outcome</h4><p>v2 replaced v1 in production, is live in both countries, and the app's store rating went up after launch. I wrote most of v2's code, about 78% of the commits. Ladder's store listing now reports 27K+ active users and $2M+ saved.</p></div>
+          </div>
+              </div>
+            </details>
+            <details class="dive" id="more-ladder">
+              <summary>
+                <span class="dive-k">Deep dive</span>
+                <span class="dive-t">More from Ladder</span>
+                <span class="dive-s">An AI assistant, selfie ID checks, security, analytics and a two-country rollout.</span>
+                <span class="dive-cta"><span class="when-closed">See all</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </summary>
+              <div class="dive-body">
+<div class="also">
+<article class="mini span2 ai"><div class="ai-copy">
+          <span class="mini-where">AI</span>
+          <h3>An AI assistant inside a finance app</h3>
+          <p>"Lady" streams replies over Server-Sent Events into an animated streaming-text view, with file attachments and chat history. A consent screen asks the user before any financial data is sent to the AI.</p>
+          <div class="sse" aria-hidden="true"><span>data: {"delta":"Your savings grew"}</span><span>data: {"delta":" 4% this month"}</span><span class="cur">data: …</span></div>
+          </div>
+          <img class="ai-shot" src="img/ladder-lady.webp" alt="Ladder App Store screenshot introducing Lady, the personal financial assistant" loading="lazy" decoding="async">
+        </article>
+<article class="mini">
+          <span class="mini-where">Identity</span>
+          <h3>Selfie capture that checks itself</h3>
+          <p>On-device identity capture with Google ML Kit. It checks face size, centring, open eyes and detection confidence, with adjustable strictness and exposure correction for dim rooms.</p>
+        </article>
+<article class="mini">
+          <span class="mini-where">Security</span>
+          <h3>Security for a finance app</h3>
+          <p>Face ID, fingerprint and PIN login, secure storage, decryption of sensitive payloads from the backend, and automatic logout after inactivity or when the app goes to the background.</p>
+        </article>
+<article class="mini">
+          <span class="mini-where">Analytics</span>
+          <h3>Attribution without the mess</h3>
+          <p>Kochava install attribution on iOS (with the tracking-permission prompt) and Android, plus Mixpanel, behind one analytics interface with an event map and onboarding-funnel tracking. Deep links cover universal links, app links and push notifications.</p>
+        </article>
+<article class="mini">
+          <span class="mini-where">Rollout</span>
+          <h3>Two countries, one codebase</h3>
+          <p>Compile-time feature flags decide what ships in Nigeria and what ships in Ghana. Development, staging and production each build against their own Firebase project.</p>
+        </article>
+              </div>
+              </div>
+            </details>
+          </div>
+        </article>
+
+        <!-- ===== App 2: FunZ ===== -->
+        <article class="cs app" id="funz">
+          <span class="sticker">2 years as technical owner</span>
+          <div class="cs-head">
+            <div class="p-visual" style="--tone:#FFD66B">
+              <div class="phone back"><div class="screen">
+                <img class="shot" src="img/funz-business.webp" alt="FunZ Business introduction screen with an Explore FunZ Business button" loading="lazy" decoding="async">
+              </div></div>
+              <div class="phone front"><div class="screen">
+                <img class="shot" src="img/funz-home.webp" alt="FunZ home screen showing the wallet balance, Add Money and Send actions, and Quick Pay for airtime, electricity, cable TV and data" loading="lazy" decoding="async">
+              </div></div>
+              <span class="mocklabel">FunZ app · personal details blurred</span>
+            </div>
+            <div>
+              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Riverpod</span><span class="tag">Fastlane</span><span class="tag">GitHub Actions</span></div>
+              <h3>FunZ</h3>
+              <p class="hook">A Nigerian payments app for people and businesses: transfers, bill pay, airtime and electricity.</p>
+              <p class="inshort"><b>In short</b>I was the main engineer for two years. I built the business version of the app and Scan-to-Pay, and made every release build the same way.</p>
+              <p class="meta"><span>Role:</span> Lead Mobile Engineer · <span>Aug 2024 – Jul 2026</span> · Lagos</p>
+              <div class="app-stats">
+                <div><b>140+</b><span>screens across iOS and Android</span></div>
+                <div><b>2 yrs</b><span>as the app's main engineer</span></div>
+                <div><b>~15s</b><span>saved on every account number with Scan-to-Pay</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="dives">
+            <details class="dive" id="scan-to-pay">
+              <summary>
+                <span class="dive-k">Deep dive</span>
+                <span class="dive-t">Scan-to-Pay: from a handwritten note to a filled-in transfer</span>
+                <span class="dive-s">Users photograph a handwritten account number instead of typing it, which cuts about 15 seconds off every transfer.</span>
+                <span class="dive-cta"><span class="when-closed">Read the full story</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </summary>
+              <div class="dive-body">
+<div class="cs-head">
+            <div class="p-visual" style="--tone:#54C5F8">
+              <div class="phone back"><div class="screen">
+                <img class="shot" src="img/scan-prefilled.webp" alt="FunZ Send Money screen with the account number, account name and Zenith Bank filled in from the scan" loading="lazy" decoding="async">
+              </div></div>
+              <div class="phone front"><div class="screen">
+                <img class="shot" src="img/scan-camera.webp" alt="FunZ Scan account number screen extracting a handwritten account number and bank name from a notebook page" loading="lazy" decoding="async">
+              </div></div>
+              <span class="mocklabel">FunZ app · scanning a handwritten note</span>
+            </div>
+            <div>
+              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Multimodal LLM</span><span class="tag">OpenRouter</span><span class="tag">Fuzzy matching</span></div>
+              <p class="hook">Point the camera at an account number scribbled on paper and the transfer form fills itself in. Money still moves only when you confirm.</p>
+              <p class="meta"><span>Where:</span> FunZ · Lead Mobile Engineer · Lagos</p>
+            </div>
+          </div>
+<div class="cs-body">
+            <div class="cell"><h4>Context</h4><p>In Nigeria, account details are often shared as a scribbled note, a document or a screenshot. Sending money meant copying them field by field.</p></div>
+            <div class="cell"><h4>Problem</h4><p>Typing an account number and picking a bank by hand is slow, and one wrong digit can send money to the wrong person.</p></div>
+            <div class="cell"><h4>Constraints</h4><p>Handwriting and phone photos are messy, so no reader is perfect. A 10-digit NUBAN can belong to accounts at more than one bank. And this is a payment, so a misread must never turn into a costly mistake.</p></div>
+            <div class="cell full"><h4>What I built</h4>
+              <ul class="built">
+                <li><b>Camera capture</b> of just the framed region, so the model only sees the part of the page that matters.</li>
+                <li><b>Extraction</b> of Nigerian 10-digit account numbers, and the bank name when it's written, using a multimodal LLM through OpenRouter.</li>
+                <li><b>Client-side parsing</b> of the model's answer with confidence thresholds.</li>
+                <li><b>A candidate picker</b> when the page holds more than one plausible account number.</li>
+                <li><b>Zoom</b> for account details written too far from the camera to read clearly.</li>
+                <li><b>Fuzzy bank matching</b> against the bank list, so a scrawled "Zenith" becomes Zenith Bank.</li>
+                <li><b>Prefill, not payment.</b> The result fills the bank transfer form, and then amount, validation, confirmation and the transfer run exactly as they do for a manual transfer.</li>
+              </ul>
+            </div>
+            <div class="cell half"><h4>Trade-offs &amp; safety</h4><p><strong style="color:var(--text)">Assist, don't act.</strong> The scanner never starts a payment. A misread costs the user a correction, never money, and every transfer still goes through the same validation and confirmation as one typed by hand.</p><p><strong style="color:var(--text)">Ask when unsure.</strong> Confidence thresholds gate what the parser accepts, and when there are several candidates the user picks one instead of the app guessing.</p><p><strong style="color:var(--text)">A model over ML Kit.</strong> On-device ML Kit text recognition was flaky and often misread blurred digits. A multimodal LLM reads messy photos far better, in exchange for a network call on each scan.</p></div>
+            <div class="cell half"><h4>Outcome</h4><div class="stat-pair"><div><b>~20s → ~5s</b><span>to enter an account number, down from typing and re-checking by hand</span></div><div><b>~90%</b><span>of scans read the details correctly</span></div></div></div>
+          </div>
+              </div>
+            </details>
+            <details class="dive" id="more-funz">
+              <summary>
+                <span class="dive-k">Deep dive</span>
+                <span class="dive-t">More from FunZ</span>
+                <span class="dive-s">FunZ Business, secure login, links that open the right screen, privacy-safe logs and repeatable releases.</span>
+                <span class="dive-cta"><span class="when-closed">See all</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </summary>
+              <div class="dive-body">
+<div class="also">
+                <article class="mini span2"><span class="mini-where">Business</span><h3>FunZ Business, end to end</h3><p>A business version of the app: corporate and enterprise onboarding, directors and signatories, and PIN-protected business transfers.</p></article>
+                <article class="mini"><span class="mini-where">Security</span><h3>Secure login</h3><p>Encrypted local storage with fingerprint, Face ID and PIN unlock.</p></article>
+                <article class="mini"><span class="mini-where">Navigation</span><h3>Links that land right</h3><p>App-wide routing with deep links that still open the right screen when the app starts from cold. Riverpod state across 55+ providers.</p></article>
+                <article class="mini"><span class="mini-where">Privacy</span><h3>Logs without secrets</h3><p>A logging layer that strips personal data and tokens before anything is written.</p></article>
+                <article class="mini"><span class="mini-where">Releases</span><h3>Same build, every machine</h3><p>App Store and Play Store releases on Fastlane and GitHub Actions, with pinned toolchains, cached dependencies and code generation in CI. Build drift between machines ended.</p></article>
+              </div>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= OPEN SOURCE ================= -->
+  <section class="block tight" id="open-source">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Open source</span>
+          <h2>Something you can install today</h2>
+        </div>
+        <p>A Flutter package on pub.dev, with every line of code public.</p>
+      </div>
+      <div class="also">
+        <article class="mini wide oss">
+          <div class="mini-copy">
+            <span class="mini-where">Flutter package · Android &amp; iOS · MIT</span>
+            <h3>liveness_flutter</h3>
+            <p>Plug-and-play liveness detection for Flutter. You pick a sequence of actions like blink, smile or turn left. The package guides the user through them on camera, then returns a confidence score plus the photos or video to send to your backend.</p>
+            <ul class="built">
+              <li><b>13 challenge actions</b>, shuffled into a random order each time so a recorded attempt can't be replayed.</li>
+              <li><b>Anti-spoof checks</b> using sensor-noise analysis and micro-motion, plus an optional colour-flash challenge against video replays.</li>
+              <li><b>Assisted mode</b> that uses the back camera to verify someone else.</li>
+              <li><b>Fully on-device</b> with Google ML Kit face detection. Nothing goes to a cloud service unless you send it.</li>
+              <li><b>Themeable</b>, or replace the UI entirely.</li>
+            </ul>
+            <div class="p-links">
+              <a class="btn btn-primary btn-sm" href="https://pub.dev/packages/liveness_flutter">View on pub.dev</a>
+              <a class="btn btn-ghost btn-sm" href="https://github.com/maykhid/liveness_flutter">Source on GitHub</a>
+            </div>
+          </div>
+          <div class="oss-panel" aria-label="Example liveness challenge sequence">
+            <div class="term"><span class="c">$</span> flutter pub add liveness_flutter</div>
+            <div class="seq-label">This session's challenge order</div>
+            <ol class="seq">
+              <li class="done">Blink</li>
+              <li class="done">Turn left</li>
+              <li class="now">Smile</li>
+              <li>Nod</li>
+            </ol>
+            <div class="oss-stats">
+              <div><b>150<small>/160</small></b><span>pub points</span></div>
+              <div><b>13</b><span>challenge actions</span></div>
+              <div><b>MIT</b><span>license</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOCUS ================= -->
+  <section class="block tight" id="focus">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Focus</span>
+          <h2>What teams trust me with</h2>
+        </div>
+        <p>Patchy networks, many ways to pay, and strict rules on what each account can do. They make finance apps harder to build, and they're what I know best.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar"><span class="rank">payments</span><h3>Every way people pay</h3><p>Cards, mobile money, direct debit and bank transfers, with account limits checked before any money moves.</p><p class="under">Flutterwave checkout · polled MoMo verification · NGN mandates with OTP · KYC tier gating</p></div>
+        <div class="pillar"><span class="rank">reliability</span><h3>Built for bad networks</h3><p>When the connection drops, the app keeps showing what it knows, reconnects by itself and lets people retry instead of failing silently.</p><p class="under">WebSocket heartbeat + backoff · manual retry · cold-start deep links · Shorebird patches</p></div>
+        <div class="pillar"><span class="rank">ownership</span><h3>The person responsible</h3><p>Lead or main engineer on two live finance apps. At Ladder, I rebuilt the whole app and swapped out the old version while people were using it.</p><p class="under">Ladder v2.0 rewrite · FunZ technical owner for 2 years</p></div>
+        <div class="pillar"><span class="rank">release</span><h3>Boring, repeatable releases</h3><p>Updates reach the App Store and Google Play the same way every time, and urgent fixes can go out without waiting for store review.</p><p class="under">Fastlane · GitHub Actions · Codemagic · pinned toolchains · cached dependencies</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="block tight" id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Experience</span>
+          <h2>Where I've shipped</h2>
+        </div>
+      </div>
+      <ol class="timeline" reversed>
+        <li class="job"><time>Sep 2025 – present<span>Accra, remote from Lagos</span></time><div><h3>Mobile Engineer <span>· Ladder</span></h3><p>Primary engineer on the v2.0 rewrite that replaced the live v1. Built the naira/cedi/dollar FX layer, the payments experience, the "Lady" AI assistant, selfie KYC capture and the release tooling for an app serving Nigeria and Ghana.</p></div></li>
+        <li class="job"><time>Aug 2024 – Jul 2026<span>Lagos</span></time><div><h3>Lead Mobile Engineer <span>· FunZ</span></h3><p>Primary technical owner of a consumer and business fintech app for two years. Built Scan-to-Pay and the FunZ Business vertical, and automated releases to both stores.</p></div></li>
+        <li class="job"><time>Feb 2024 – Aug 2024<span>Lagos · contract</span></time><div><h3>Mobile Engineer <span>· GetEquity</span></h3><p>Refactored legacy Flutter modules into modular Provider-based packages, added Shorebird OTA updates for critical patches, and built release workflows on Codemagic. The platform served 10K+ daily active investors.</p></div></li>
+        <li class="job"><time>May 2022 – Feb 2024<span>Lagos</span></time><div><h3>Mobile Engineer <span>· Traverse Apps</span></h3><p>Cross-platform products for finance and accounting clients in Flutter and Jetpack Compose, with Firebase and Ably real-time features. Shipped Floatr, a loan-disbursement app that reached 5,000+ installs in 5 months, and AACSL, a mobile client that automates payroll and bookkeeping work for a UK/Nigerian chartered-accounting firm.</p></div></li>
+      </ol>
+      <div class="earlier">
+        <ul>
+          <li><b>Drugstore.ng <span>2021 – 22</span></b><p>Nigeria's online pharmacy app, with personalised drug requests and dynamic pricing across pharmacies. Shipped in 3 months against a 4-month plan.</p></li>
+          <li><b>Whipik <span>2022</span></b><p>Launched "Become a Writer", cutting publishing-rights approval from days to near-instant. Analytics via Firebase, Mixpanel and Branch.io.</p></li>
+          <li><b>PureMatch <span>2023</span></b><p>Flutter contract work.</p></li>
+          <li><b>WePrototype <span>2019 – 20</span></b><p>Flutter, GraphQL and AWS Rekognition. My first professional Flutter work.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STACK ================= -->
+  <section class="block tight" id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow">Stack</span>
+          <h2>Tools I use in production</h2>
+        </div>
+        <p>Dart and Flutter every day. Kotlin and Swift when a platform channel needs them.</p>
+      </div>
+      <div class="stack">
+        <div class="group"><h3>mobile</h3><div class="chips"><span class="chip">Dart</span><span class="chip">Flutter</span><span class="chip">Jetpack Compose</span><span class="chip">Kotlin &amp; Swift platform channels</span></div></div>
+        <div class="group"><h3>architecture</h3><div class="chips"><span class="chip">Riverpod</span><span class="chip">BLoC</span><span class="chip">Provider</span><span class="chip">GetIt</span><span class="chip">Injectable</span><span class="chip">Clean Architecture</span><span class="chip">Design tokens</span><span class="chip">MVVM</span><span class="chip">Feature-first modules</span></div></div>
+        <div class="group"><h3>payments</h3><div class="chips"><span class="chip">Flutterwave</span><span class="chip">Paystack</span><span class="chip">Mobile Money</span><span class="chip">Multi-currency FX</span><span class="chip">NGN bank mandates</span><span class="chip">Direct debit</span><span class="chip">OTP flows</span></div></div>
+        <div class="group"><h3>data &amp; real-time</h3><div class="chips"><span class="chip">REST</span><span class="chip">GraphQL</span><span class="chip">WebSockets</span><span class="chip">Server-Sent Events</span><span class="chip">Dio</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span><span class="chip">Cloud Functions</span><span class="chip">Hive</span></div></div>
+        <div class="group"><h3>security &amp; ML</h3><div class="chips"><span class="chip">Biometric &amp; PIN auth</span><span class="chip">Keychain</span><span class="chip">Encrypted storage</span><span class="chip">Payload decryption</span><span class="chip">PII-safe logging</span><span class="chip">ML Kit face detection</span><span class="chip">Multimodal LLM extraction</span></div></div>
+        <div class="group"><h3>release &amp; observability</h3><div class="chips"><span class="chip">Fastlane</span><span class="chip">Codemagic</span><span class="chip">GitHub Actions</span><span class="chip">Shorebird</span><span class="chip">App Store Connect</span><span class="chip">Play Console</span><span class="chip">Compile-time feature flags</span><span class="chip">Sentry</span><span class="chip">Crashlytics</span><span class="chip">Mixpanel</span><span class="chip">Kochava</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="block tight" id="about">
+    <div class="wrap about">
+      <img class="portrait" src="img/henry.webp" alt="Henry Ifebunandu sitting on a wooden boardwalk among trees, chin resting on his hand" width="520" height="650" loading="lazy" decoding="async">
+      <div class="about-copy">
+        <span class="eyebrow">About</span>
+        <h2>Mechanical engineer by training</h2>
+        <p>I studied Mechanical Engineering at Yaba College of Technology and wrote my first professional Flutter code in 2019. Since then I've worked mostly on apps that move money: lending, investing, savings, transfers and bill pay.</p>
+        <p>I build for the conditions my users actually have: <strong>patchy networks, several ways to pay, and regulators who decide what each account tier can do.</strong></p>
+        <ul class="creds">
+          <li><span>Education</span>ND &amp; HND, Mechanical Engineering · Yaba College of Technology</li>
+          <li><span>Award</span>Grand Prize, SMFEST Hackathon (Silicon Africa), 2022</li>
+        </ul>
+        <div class="pubspec" aria-label="A pubspec.yaml describing Henry">
+<pre><span class="c"># pubspec.yaml</span>
+<span class="k">name:</span> <span class="v">henry_ifebunandu</span>
+<span class="k">description:</span> Senior mobile engineer. Flutter, fintech, African markets.
+<span class="k">version:</span> <span class="v">6.0.0+2019</span>   <span class="c"># years of Flutter, first commit in 2019</span>
+
+<span class="k">environment:</span>
+  <span class="k">location:</span> Lagos, Nigeria
+  <span class="k">timezone:</span> <span class="v">UTC+1</span>   <span class="c"># full UK/EU overlap, afternoons with US East</span>
+  <span class="k">remote:</span> <span class="v">true</span>
+
+<span class="k">dependencies:</span>
+  <span class="k">flaky_networks:</span> <span class="v">^handled</span>
+  <span class="k">payment_rails:</span> <span class="v">^4.0.0</span>
+  <span class="k">currencies:</span> <span class="v">[NGN, GHS, USD]</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <h2>Ready for the next adventure.</h2>
+        <p>I'm looking for a senior or lead mobile role where I can own a product end to end. Remote works best.</p>
+        <p class="tz">Lagos · UTC+1 · full overlap with UK &amp; EU hours · afternoons with US East</p>
+        <div class="email-row">
+          <span class="email" id="email">henryifebunandu@gmail.com</span>
+          <button class="btn copy" id="copy" type="button">Copy email</button>
+        </div>
+        <div class="socials">
+          <a href="https://github.com/maykhid">GitHub</a>
+          <a href="https://www.linkedin.com/in/henry-ifebunandu">LinkedIn</a>
+          <a href="https://medium.com/@henryifebunandu">Medium</a>
+          <a href="https://pub.dev/packages/liveness_flutter">pub.dev</a>
+          <!-- CV: add when ready -> <a href="/henry-ifebunandu-cv.pdf">CV</a> -->
+        </div>
+        <figure class="toon" aria-label="Cartoon of Henry wearing nerd glasses">
+          <p class="toon-bubble">Signal's good over here. Say hi!</p>
+          <svg viewBox="0 0 300 340" role="img" aria-label="Cartoon of Henry with a beard and thick nerd glasses">
+            <defs>
+              <pattern id="knit" width="12" height="10" patternUnits="userSpaceOnUse">
+                <rect width="12" height="10" fill="#F2EFE6"/>
+                <circle cx="3" cy="3" r="2.2" fill="#E2DDD0"/>
+                <circle cx="9" cy="8" r="2.2" fill="#E2DDD0"/>
+              </pattern>
+            </defs>
+            <!-- body -->
+            <path d="M28 340 C 32 292 70 264 118 256 L 150 274 L 182 256 C 230 264 268 292 272 340 Z" fill="url(#knit)"/>
+            <path d="M118 256 L150 292 L182 256 L172 248 L150 272 L128 248 Z" fill="#C7773A"/>
+            <path d="M70 284 L 208 340 L 238 340 L 90 272 Z" fill="#16161A"/>
+            <!-- neck -->
+            <path d="M122 214 L178 214 L180 262 C 166 274 134 274 120 262 Z" fill="#7E4F33"/>
+            <!-- ears -->
+            <ellipse cx="66" cy="148" rx="14" ry="22" fill="#9A6646"/>
+            <ellipse cx="234" cy="148" rx="14" ry="22" fill="#9A6646"/>
+            <!-- head -->
+            <path d="M150 44 C 206 44 238 86 236 142 C 234 192 205 238 150 240 C 95 238 66 192 64 142 C 62 86 94 44 150 44 Z" fill="#9A6646"/>
+            <ellipse cx="112" cy="92" rx="30" ry="16" fill="#B8845E" opacity=".45"/>
+            <!-- hair -->
+            <pattern id="buzz" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#3A2A21"/><circle cx="1.5" cy="1.5" r="1.1" fill="#1E1511"/><circle cx="4" cy="4" r="1.1" fill="#1E1511"/></pattern>
+            <path d="M71 140 L 67 118 C 65 78 97 43 150 43 C 203 43 235 78 233 118 L 229 140 L 224 140 L 222 116 C 219 104 213 96 205 92 C 189 84 170 81 150 81 C 130 81 111 84 95 92 C 87 96 81 104 78 116 L 76 140 Z" fill="url(#buzz)"/>
+            <!-- beard -->
+            <path d="M69 136 L 78 136 C 80 164 94 188 114 198 C 117 190 123 186 131 185 C 139 183 146 185 150 187 C 154 185 161 183 169 185 C 177 186 183 190 186 198 C 206 188 220 164 222 136 L 231 136 C 233 198 204 248 150 252 C 96 248 67 198 69 136 Z" fill="#231915"/>
+            <!-- mouth -->
+            <path d="M125 201 Q 137 193 150 197 Q 163 193 175 201 Q 150 205 125 201 Z" fill="#6E3A2A"/>
+            <path d="M125 201 Q 150 217 175 201 Q 150 207 125 201 Z" fill="#A15E49"/>
+            <!-- nose -->
+            <path d="M141 146 C 140 160 133 166 136 173 C 141 179 159 179 164 173 C 167 166 160 160 159 146" fill="#8A5A3C"/>
+            <ellipse cx="143" cy="172" rx="4" ry="2.6" fill="#4E2F1D"/>
+            <ellipse cx="157" cy="172" rx="4" ry="2.6" fill="#4E2F1D"/>
+            <!-- eyes -->
+            <g class="toon-eyes">
+              <ellipse cx="119" cy="137" rx="13" ry="8.5" fill="#FFFFFF"/>
+              <ellipse cx="181" cy="137" rx="13" ry="8.5" fill="#FFFFFF"/>
+              <g class="pupil" data-cx="119" data-cy="136"><circle cx="119" cy="136" r="5.8" fill="#1B1310"/><circle cx="121" cy="134" r="1.6" fill="#FFFFFF"/></g>
+              <g class="pupil" data-cx="181" data-cy="136"><circle cx="181" cy="136" r="5.8" fill="#1B1310"/><circle cx="183" cy="134" r="1.6" fill="#FFFFFF"/></g>
+              <rect class="lid" x="104" y="124" width="30" height="24" rx="10" fill="#9A6646"/>
+              <rect class="lid" x="166" y="124" width="30" height="24" rx="10" fill="#9A6646"/>
+            </g>
+            <path d="M106 147 Q 119 152 132 147" stroke="#7E4F33" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M168 147 Q 181 152 194 147" stroke="#7E4F33" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- brows -->
+            <path d="M100 113 Q 119 102 138 110" stroke="#1B1310" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M162 110 Q 181 102 200 113" stroke="#1B1310" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <!-- nerd glasses -->
+            <g class="toon-glasses">
+              <line x1="92" y1="128" x2="64" y2="136" stroke="#0E0E12" stroke-width="6" stroke-linecap="round"/>
+              <line x1="208" y1="128" x2="236" y2="136" stroke="#0E0E12" stroke-width="6" stroke-linecap="round"/>
+              <rect x="92" y="114" width="54" height="44" rx="14" fill="rgba(255,255,255,.07)" stroke="#0E0E12" stroke-width="7"/>
+              <rect x="154" y="114" width="54" height="44" rx="14" fill="rgba(255,255,255,.07)" stroke="#0E0E12" stroke-width="7"/>
+              <path d="M146 130 Q 150 123 154 130" stroke="#0E0E12" stroke-width="7" fill="none"/>
+              <rect x="143" y="121" width="14" height="13" rx="2" fill="#F2EFE6" transform="rotate(-8 150 127)"/>
+              <path d="M145 125 L155 124 M145 129 L155 128" stroke="#C9C3B4" stroke-width="1.2" transform="rotate(-8 150 127)"/>
+              <path d="M101 150 L 116 121" stroke="#FFFFFF" stroke-width="3" opacity=".35" stroke-linecap="round"/>
+              <path d="M163 150 L 178 121" stroke="#FFFFFF" stroke-width="3" opacity=".35" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Henry Ifebunandu</span>
+    <span>Built in plain HTML so it loads fast on any network.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var stage = $('stage'), conn = $('conn'), connText = $('connText'), sync = $('sync');
+  var balEl = $('bal'), txn = $('txn'), go = $('go'), toastEl = $('toast');
+  var net = $('net'), netText = $('netText');
+
+  var online = true, balance = 482150, amount = 5000, TIER_LIMIT = 50000;
+  var lastSync = Date.now(), attempt = 0, retryIn = 0, retryTimer = null, toastTimer = null;
+  var polling = null; // {check, max, amount}
+
+  function naira(v){ return '₦' + v.toLocaleString('en-NG', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function toast(msg){
+    toastEl.textContent = msg; toastEl.classList.add('show');
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2000);
+  }
+  function setTxn(cls, title, body, retry){
+    txn.className = 'txn' + (cls ? ' ' + cls : '');
+    txn.innerHTML = '';
+    var b = document.createElement('b');
+    if (cls === 'wait') { var s = document.createElement('span'); s.className = 'spin'; b.appendChild(s); }
+    b.appendChild(document.createTextNode(title));
+    txn.appendChild(b);
+    txn.appendChild(document.createTextNode(body));
+    if (retry) {
+      var r = document.createElement('button'); r.type = 'button'; r.className = 'retrybtn'; r.textContent = 'Retry check';
+      r.addEventListener('click', retryCheck); txn.appendChild(document.createElement('br')); txn.appendChild(r);
+    }
+  }
+
+  // ---- heartbeat & sync label ----
+  setInterval(function(){
+    if (online) {
+      lastSync = Date.now();
+      conn.classList.remove('beat'); void conn.offsetWidth; conn.classList.add('beat');
+      sync.textContent = 'Synced just now · heartbeat ok';
+    } else {
+      var s = Math.round((Date.now() - lastSync)/1000);
+      sync.textContent = 'Offline · showing balance from ' + s + 's ago';
+    }
+  }, 1000);
+
+  // ---- exponential backoff ----
+  function scheduleRetry(){
+    var delay = Math.min(16, Math.pow(2, attempt)); // 1, 2, 4, 8, 16
+    retryIn = delay;
+    conn.className = 'conn retry';
+    connText.textContent = 'Retry in ' + retryIn + 's';
+    clearInterval(retryTimer);
+    retryTimer = setInterval(function(){
+      retryIn -= 1;
+      if (retryIn > 0) { connText.textContent = 'Retry in ' + retryIn + 's'; return; }
+      clearInterval(retryTimer);
+      conn.className = 'conn connecting'; connText.textContent = 'Connecting…';
+      setTimeout(function(){
+        if (online) { reconnected(); }
+        else { attempt += 1; scheduleRetry(); }
+      }, 700);
+    }, 1000);
+  }
+  function reconnected(){
+    clearInterval(retryTimer); attempt = 0;
+    conn.className = 'conn'; connText.textContent = 'Live';
+    lastSync = Date.now();
+    toast('Reconnected · balance synced');
+  }
+
+  net.addEventListener('click', function(){
+    online = !online;
+    net.setAttribute('aria-pressed', String(!online));
+    stage.classList.toggle('down', !online);
+    if (!online) {
+      netText.textContent = 'Restore the network';
+      attempt = 0; scheduleRetry();
+    } else {
+      netText.textContent = 'Drop the network';
+      // the next scheduled attempt picks the connection up; shorten the wait for the demo
+      if (retryIn > 1) { retryIn = 1; connText.textContent = 'Retry in 1s'; }
+    }
+  });
+
+  // ---- amount chips ----
+  Array.prototype.forEach.call(document.querySelectorAll('#amts .amt'), function(btn){
+    btn.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('#amts .amt'), function(b){ b.setAttribute('aria-pressed','false'); });
+      btn.setAttribute('aria-pressed','true');
+      amount = parseInt(btn.getAttribute('data-v'), 10);
+    });
+  });
+
+  // ---- funding with pre-flight check + polled verification ----
+  go.addEventListener('click', function(){
+    if (polling) return;
+    if (amount > TIER_LIMIT) {
+      setTxn('block', 'Stopped before it started', ' ₦' + amount.toLocaleString() + ' is over this account\'s limit. Verify your ID to raise it. No money moved.');
+      return;
+    }
+    polling = { check: 0, max: 5, amount: amount };
+    go.disabled = true;
+    poll();
+  });
+  function poll(){
+    polling.check += 1;
+    setTxn('wait', 'Approve the prompt on your phone', ' Checking payment status · check ' + polling.check + ' of ' + polling.max);
+    setTimeout(function(){
+      if (!online) {
+        setTxn('stuck', 'Payment still pending', ' No connection, so we can’t confirm it yet. Your money isn’t lost. Retry when you’re back online.', true);
+        return;
+      }
+      if (polling.check >= 3) { complete(); } else { poll(); }
+    }, 1200);
+  }
+  function retryCheck(){
+    if (!polling) return;
+    if (!online) {
+      setTxn('stuck', 'Still offline', ' Restore the network, then retry. The payment is waiting.', true);
+      return;
+    }
+    poll();
+  }
+  function complete(){
+    balance += polling.amount;
+    balEl.textContent = naira(balance);
+    setTxn('ok', 'Wallet funded', ' ' + naira(polling.amount) + ' added via Mobile Money after ' + polling.check + ' status checks.');
+    toast('+' + naira(polling.amount));
+    polling = null; go.disabled = false;
+  }
+
+  // ---- open a deep dive from the URL hash ----
+  function openFromHash(){
+    var id = location.hash.slice(1); if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({block:'start'}); }
+  }
+  window.addEventListener('hashchange', openFromHash); openFromHash();
+
+  // ---- cartoon: eyes follow the cursor ----
+  (function(){
+    var svg = document.querySelector('.toon svg'); if (!svg) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var pupils = svg.querySelectorAll('.pupil'), raf = 0, px = 0, py = 0;
+    function move(){
+      raf = 0;
+      var r = svg.getBoundingClientRect(), sx = r.width / 300, sy = r.height / 340;
+      pupils.forEach(function(p){
+        var cx = r.left + p.getAttribute('data-cx') * sx, cy = r.top + p.getAttribute('data-cy') * sy;
+        var dx = px - cx, dy = py - cy, d = Math.hypot(dx, dy) || 1, k = Math.min(1, d / 200);
+        p.setAttribute('transform', 'translate(' + (dx / d * 5 * k).toFixed(2) + ' ' + (dy / d * 3.5 * k).toFixed(2) + ')');
+      });
+    }
+    window.addEventListener('pointermove', function(e){ px = e.clientX; py = e.clientY; if (!raf) raf = requestAnimationFrame(move); }, {passive:true});
+  })();
+
+  // ---- copy email ----
+  var copyBtn = $('copy'), email = $('email');
+  copyBtn.addEventListener('click', function(){
+    var text = email.textContent.trim();
+    function selectIt(){
+      var r = document.createRange(); r.selectNodeContents(email);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = 'Press ⌘C / Ctrl+C';
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function(){
+        copyBtn.textContent = 'Copied';
+        setTimeout(function(){ copyBtn.textContent = 'Copy email'; }, 1800);
+      }, selectIt);
+    } catch(e){ selectIt(); }
+  });
+})();
+</script>
+
+</body>
+</html>
