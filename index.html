@@ -893,7 +893,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
               <summary>
                 <span class="dive-k">Deep dive</span>
                 <span class="dive-t">FunZ Business: a business account inside a consumer wallet</span>
-                <span class="dive-s">One signed-in person can switch between their personal wallet and a business account in the same app, with company onboarding and multi-person approval before business money moves.</span>
+                <span class="dive-s">People can switch between their personal wallet and a business account in the same app, and business payments need a second person to approve them.</span>
                 <span class="dive-cta"><span class="when-closed">Read the full story</span><span class="when-open">Close</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
               </summary>
               <div class="dive-body">
@@ -919,34 +919,31 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
               <span class="mocklabel">Back: FunZ app · Front: illustrative mockup</span>
             </div>
             <div>
-              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Riverpod</span><span class="tag">go_router</span><span class="tag">Freezed</span></div>
-              <p class="hook">I added a regulated business account to an existing consumer wallet: three types of Nigerian business registration, onboarding you can leave and resume, and multi-person approval before a payment goes out. No second app.</p>
+              <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Flutter</span><span class="tag">Riverpod</span></div>
+              <p class="hook">I added business accounts to FunZ's personal wallet without a second app: sign-up for all three types of Nigerian business, and approval by someone else before any business payment goes out.</p>
               <p class="meta"><span>Where:</span> FunZ · Lead Mobile Engineer · Lagos</p>
             </div>
           </div>
           <div class="cs-body">
-            <div class="cell"><h4>Context</h4><p>FunZ was a personal wallet. The people who run businesses were already signed in to it as individuals.</p></div>
-            <div class="cell"><h4>Problem</h4><p>Give them a business account in the same app, so one person can move between their personal wallet and a business without a second login or a second download.</p></div>
-            <div class="cell"><h4>Constraints</h4><p>Nigerian businesses register in three different ways, each with its own documents. Onboarding requires the owner at KYC tier 3. Money leaving a business account needs sign-off from signatories. Personal-only features must never leak into a business session.</p></div>
+            <div class="cell"><h4>Context</h4><p>FunZ was a personal wallet, and the people who run businesses were already using it as individuals.</p></div>
+            <div class="cell"><h4>Problem</h4><p>Let them run a business account from the same app, and switch between personal and business without a second download.</p></div>
+            <div class="cell"><h4>Constraints</h4><p>Nigerian businesses register in three different ways, each with its own paperwork. Business payments need sign-off from more than one person. And business mode must never show personal-only features.</p></div>
             <div class="cell full"><h4>What I built</h4>
               <ul class="built">
-                <li><b>A business module of about 130 Dart files</b> covering onboarding, home, payments, approvals and team access, wired into the existing wallet.</li>
-                <li><b>One account context for the whole app.</b> Personal or business is stored per user and cleared if someone else signs in. Transfers, receipts and profile screens all read from it. If the business list hasn't loaded yet, the app shows the last known business name, bank and account number.</li>
-                <li><b>Business-mode guardrails.</b> Sending is bank transfer only; FunZ-tag transfers stay personal. An inactive business can't send money. A business with no transaction PIN gets a set-PIN sheet instead of a generic error. Receipts switch layout for business transactions.</li>
-                <li><b>Onboarding for three entity types:</b> Enterprise (BN), Corporate (RC) and Incorporated Trustee (IT), each with its own screens, controller and document pack, from CAC documents and board resolutions to SCUML certificates and MEMART. The first director is prefilled from the user's KYC.</li>
-                <li><b>Drafts you can resume.</b> Company details, documents and directors or trustees are saved to the server step by step. Coming back prefills what's stored and only uploads files that changed. Applications move through draft, needs revision and needs review.</li>
-                <li><b>Signatory approval before money leaves.</b> The business home counts transfers awaiting approval. The initiator can't approve their own. Each signatory is mandatory or optional, and approving or declining needs an SMS code. Reminders go to one signatory or everyone outstanding.</li>
-                <li><b>Team access</b> for corporate and trustee accounts: list, add and invite directors or trustees, including by FunZ tag, plus a join-business flow for people who receive an invite.</li>
-                <li><b>A business home</b> with its own account switcher, balance with a visibility toggle, send funds and an awaiting-approvals card, using the same selector pattern as the personal app.</li>
+                <li><b>Personal and business in one app.</b> One switch changes the whole app, from transfers to receipts, and business mode only shows what a business is allowed to do.</li>
+                <li><b>Sign-up for all three business types:</b> Enterprise, Corporate and Incorporated Trustee, each with its own documents and director details.</li>
+                <li><b>Applications you can finish later.</b> Progress saves as you go, so coming back picks up where you left off, documents included.</li>
+                <li><b>Approval before money leaves.</b> Business transfers wait for the business's signatories, who approve or decline with an SMS code. Whoever starts a transfer can't approve it.</li>
+                <li><b>Team invites.</b> Directors and trustees can be invited, including by FunZ tag, and join the business from their own app.</li>
               </ul>
             </div>
-            <div class="cell half"><h4>Trade-offs</h4><p><strong style="color:var(--text)">The tax ID locks at submission.</strong> The TIN stays editable only while the application is a draft, because the server uses it as the business's unique identifier after that.</p><p><strong style="color:var(--text)">Three flows, not one engine.</strong> Enterprise, corporate and trustee onboarding are separate implementations with their own screens and controllers.</p><p style="color:var(--butter);font-size:14.5px">To add: why you kept the three flows separate, and one thing you'd change.</p></div>
-            <div class="cell half"><h4>Outcome</h4><p>Businesses run inside the same FunZ app as personal wallets. Onboarding for all three entity types, sending funds, the approval queue and team invites are live.</p><p style="color:var(--butter);font-size:14.5px">To add: businesses onboarded or transfers approved, if FunZ is happy to share.</p></div>
+            <div class="cell half"><h4>Trade-off</h4><p><strong style="color:var(--text)">Safety over speed.</strong> Every business payment needs another person and an SMS code. It adds a step, but the person sending money is never the one who approves it.</p></div>
+            <div class="cell half"><h4>Outcome</h4><p>Businesses now run inside the same FunZ app as personal wallets, from sign-up to approved payments.</p></div>
             <div class="cell full"><h4>What I'd demo in an interview</h4>
               <ol class="demo-steps">
-                <li>Switch from a personal account to a business, send money, and open the receipt.</li>
-                <li>Start a corporate application, leave, and come back to find documents and directors already filled in.</li>
-                <li>Open a payment waiting on signatories, first as the person who started it, then as a signatory approving or declining with an SMS code.</li>
+                <li>Switch to a business account, send money and open the receipt.</li>
+                <li>Start a company sign-up, leave, and come back to find it filled in.</li>
+                <li>Approve a waiting payment with an SMS code.</li>
               </ol>
             </div>
           </div>
