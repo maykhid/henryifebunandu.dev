@@ -994,13 +994,14 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <div class="mini-copy">
             <span class="mini-where">Flutter package · Android &amp; iOS · MIT</span>
             <h3>liveness_flutter</h3>
-            <p>Plug-and-play liveness detection for Flutter. You pick a sequence of actions like blink, smile or turn left. The package guides the user through them on camera, then returns a confidence score plus the photos or video to send to your backend.</p>
+            <p>Face liveness checks for Flutter: free, on-device, and built to report to your backend. You pick a set of actions like blink, smile or turn left. The package guides the user through them on camera, then returns a result plus the photos or video your server needs.</p>
             <ul class="built">
-              <li><b>13 challenge actions</b>, shuffled into a random order each time so a recorded attempt can't be replayed.</li>
-              <li><b>Anti-spoof checks</b> using sensor-noise analysis and micro-motion, plus an optional colour-flash challenge against video replays.</li>
-              <li><b>Assisted mode</b> that uses the back camera to verify someone else.</li>
-              <li><b>Fully on-device</b> with Google ML Kit face detection. Nothing goes to a cloud service unless you send it.</li>
-              <li><b>Themeable</b>, or replace the UI entirely.</li>
+              <li><b>13 challenge actions</b>, shuffled into a cryptographically random order each time, so a recorded attempt can't be replayed.</li>
+              <li><b>Anti-spoof checks:</b> sensor-noise and micro-motion analysis, a colour-flash challenge, and a check that the same face stays in frame for the whole session.</li>
+              <li><b>Built for your backend.</b> Server-bound sessions tie each check to a challenge from your server and hash the evidence into an attestation it can verify.</li>
+              <li><b>Evidence at the right moment.</b> Photos are taken at the peak of each action, like eyes fully shut mid-blink.</li>
+              <li><b>Sessions that always finish.</b> Timeouts mean a check can never hang, and the result arrives exactly once.</li>
+              <li><b>Fits any app:</b> assisted mode for agents using the back camera, full theming, or your own UI and spoof detectors plugged in.</li>
             </ul>
             <div class="p-links">
               <a class="btn btn-primary btn-sm" href="https://pub.dev/packages/liveness_flutter">View on pub.dev</a>
@@ -1017,7 +1018,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
               <li>Nod</li>
             </ol>
             <div class="oss-stats">
-              <div><b>150<small>/160</small></b><span>pub points</span></div>
+              <div><b>160<small>/160</small></b><span>pub points</span></div>
               <div><b>13</b><span>challenge actions</span></div>
               <div><b>MIT</b><span>license</span></div>
             </div>

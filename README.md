@@ -27,7 +27,7 @@ Also check:
 - **Your own account details.** The Scan-to-Pay screens show your name, Zenith account number and handwriting. That's your call, but blur the middle digits if you'd rather not publish them.
 - **Ladder.** The Ladder studies describe internal details (FX layer, typed error codes, feature flags, analytics vendors). Get Ladder's OK, and never publish code, `env*.json` files or the Kochava trace logs from the repo.
 - **GitHub.** Visitors will click github.com/maykhid. Pin `liveness_flutter` and refresh the other pinned repos.
-- **liveness_flutter, quick wins.** It scores 150/160 because the `google_mlkit_face_detection: ^0.14.0` constraint doesn't allow 0.15.x. Bump it to reach 160/160. A verified publisher (via henryifebunandu.dev) would also replace "Unverified uploader" on pub.dev. The page shows pub points, not likes or downloads, which are still low.
+- **liveness_flutter.** Now at 160/160 pub points (v0.5.0). A verified publisher (via henryifebunandu.dev) would replace "Unverified uploader" on pub.dev. The page shows pub points, not likes or downloads, which are still low.
 - **What I left out on purpose:** the unverified figures (NGN 1.6B volume, 40% cold start, 30% repayment reliability, 50% payroll automation), any testing or TDD claims, skill bars, and your phone number. Only add a number back once you can back it up.
 
 ## The hero demo
