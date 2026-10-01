@@ -34,6 +34,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="b400640c-663a-4a03-b803-21390a8c2720" data-domains="henryifebunandu.dev"></script>
 <style>
 :root{
   color-scheme: dark;
@@ -1354,6 +1355,29 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
     if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({block:'start'}); }
   }
   window.addEventListener('hashchange', openFromHash); openFromHash();
+
+  // ---- analytics events (no-op until the analytics script is on the page) ----
+  function track(name, data){
+    try {
+      if (window.umami && umami.track) umami.track(name, data);
+      else if (window.goatcounter && goatcounter.count) goatcounter.count({path: name + (data && data.id ? '/' + data.id : ''), event: true});
+    } catch(e){}
+  }
+  document.querySelectorAll('details.dive').forEach(function(d){
+    d.addEventListener('toggle', function(){ if (d.open) track('dive-open', {id: d.id}); });
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a, button'); if (!a) return;
+    if (a.id === 'copy') return track('copy-email');
+    if (a.id === 'net') return track('network-toggle', {to: a.getAttribute('aria-pressed') === 'true' ? 'offline' : 'online'});
+    var href = a.getAttribute('href') || '';
+    var where = a.closest('section, header, footer'); where = where ? (where.id || where.tagName.toLowerCase()) : 'page';
+    if (href.indexOf('mailto:') === 0) return track('email-click', {where: where});
+    if (/^https?:/.test(href) && a.host !== location.host) {
+      var site = a.hostname.replace('www.', '').split('.')[0];
+      track('outbound', {site: site, where: where});
+    }
+  });
 
   // ---- cartoon: eyes follow the cursor ----
   (function(){
