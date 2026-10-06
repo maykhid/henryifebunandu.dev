@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Henry Ifebunandu · Senior Mobile Engineer, Flutter &amp; Fintech</title>
-<meta name="description" content="Henry Ifebunandu is a senior mobile engineer in Lagos building Flutter payment apps for African fintech: card checkout, mobile money, bank mandates and KYC, built to keep working on unreliable networks.">
+<meta name="description" content="Henry Ifebunandu is a senior mobile engineer in Lagos. He builds Flutter finance apps for Nigeria and Ghana: payments, cross-border FX, business accounts and identity checks.">
 <link rel="canonical" href="https://henryifebunandu.dev/">
 <meta name="theme-color" content="#0C0F1D">
 <!-- Open Graph / link previews (WhatsApp, LinkedIn, Slack, X) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://henryifebunandu.dev/">
 <meta property="og:title" content="Henry Ifebunandu · Senior Mobile Engineer">
-<meta property="og:description" content="I build Flutter apps that stay calm when the signal doesn't. Senior mobile engineer in Lagos.">
+<meta property="og:description" content="I've been writing Flutter since 2019. Most of it touches somebody's money. Senior mobile engineer in Lagos.">
 <meta property="og:image" content="https://henryifebunandu.dev/og-image.png"><!-- 1200x630 -->
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -602,6 +602,112 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
 .earlier{grid-template-columns:repeat(3,1fr)}
 @media (max-width:960px){.stack-list{grid-template-columns:1fr}}
 @media (max-width:640px){.stack-list > div{grid-template-columns:1fr;gap:4px}.earlier{grid-template-columns:1fr}}
+
+/* ---------- hero demo v2: pocket finance app ---------- */
+.dm{height:100%;display:flex;flex-direction:column;font-family:var(--body);color:#10142A}
+.dm-view{flex:1;min-height:0;overflow:auto;padding:26px 14px 14px;display:flex;flex-direction:column;gap:11px;scrollbar-width:none}
+.dm-view::-webkit-scrollbar{display:none}
+.dm-view.enter{animation:dmIn .28s ease-out}
+@keyframes dmIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+.dm button{font-family:inherit;color:inherit;cursor:pointer}
+.dm-top{display:flex;align-items:center;gap:8px}
+.dm-av{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font:800 11px/1 var(--display);background:#54C5F8;color:#0C0F1D;flex:none}
+.dm-av.biz{background:#FFD66B}
+.dm-hi{flex:1;min-width:0;font:700 13px/1.2 var(--body)}
+.dm-hi small{display:block;font:500 10px/1.2 var(--body);color:#6A7094}
+.dm-seg{display:flex;background:#E6E8F2;border-radius:999px;padding:3px}
+.dm-seg button{border:0;background:transparent;border-radius:999px;padding:6px 9px;font:700 10px/1 var(--body);color:#6A7094}
+.dm-seg button[aria-pressed="true"]{background:#10142A;color:#fff}
+.dm-bal{border-radius:18px;padding:14px;background:#10142A;color:#fff}
+.dm-bal.biz{background:linear-gradient(135deg,#2A2160,#10142A)}
+.dm-bal small{display:block;font-size:10.5px;color:#9AA3C4}
+.dm-bal b{display:block;font:800 25px/1.1 var(--display);margin-top:4px;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.dm-bal span{display:block;margin-top:7px;font:500 9.5px/1.3 var(--mono);color:#5EE3B0}
+.dm-bal.biz span{color:#FFD66B}
+.dm-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.dm-act{position:relative;border:0;background:#fff;border-radius:14px;padding:11px 4px 9px;display:flex;flex-direction:column;align-items:center;gap:6px;font:700 10.5px/1.15 var(--body);box-shadow:0 1px 0 #E3E6F2}
+.dm-act i{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-size:15px}
+.dm-act:hover{box-shadow:0 0 0 1.5px #10142A}
+.dm-badge{position:absolute;top:6px;right:10px;min-width:16px;height:16px;border-radius:8px;background:#FF7A59;color:#fff;font:700 9px/16px var(--mono)}
+.dm-h{font:700 11px/1 var(--body);color:#6A7094;margin-top:2px}
+.dm-list{display:flex;flex-direction:column;gap:5px}
+.dm-row{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 9px;font-size:11px;line-height:1.3}
+.dm-row .ic{width:24px;height:24px;border-radius:8px;flex:none;display:grid;place-items:center;font-size:11px;background:#EEF0F7}
+.dm-row .tx{flex:1;min-width:0}
+.dm-row .tx b{display:block;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dm-row .tx small{color:#6A7094;font-size:9.5px}
+.dm-row .am{font:700 10.5px/1 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.dm-row .am.out{color:#10142A}.dm-row .am.in{color:#0B7A52}.dm-row .am.wait{color:#8A6200}
+.dm-bar{display:flex;align-items:center;gap:8px;font:800 16px/1.1 var(--display)}
+.dm-back{border:0;background:#E6E8F2;border-radius:10px;width:28px;height:28px;font:700 15px/1 var(--body)!important;flex:none}
+.dm-card{background:#fff;border-radius:14px;padding:11px;font-size:11px;line-height:1.4;box-shadow:0 1px 0 #E3E6F2}
+.dm-card small{display:block;color:#6A7094;font-size:9.5px}
+.dm-pick{display:flex;flex-direction:column;gap:5px}
+.dm-pick button{border:1.5px solid #E3E6F2;background:#fff;border-radius:12px;padding:8px 9px;text-align:left;font-size:11px;line-height:1.3;display:flex;align-items:center;gap:8px}
+.dm-pick button small{display:block;color:#6A7094;font-size:9.5px}
+.dm-pick button[aria-pressed="true"]{border-color:#10142A;box-shadow:inset 0 0 0 1px #10142A}
+.dm-amts{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.dm-amts button{border:1.5px solid #E3E6F2;background:#fff;border-radius:11px;padding:9px 0;font:700 10.5px/1 var(--mono);font-variant-numeric:tabular-nums}
+.dm-amts button[aria-pressed="true"]{border-color:#10142A;background:#10142A;color:#fff}
+.dm-go{border:0;border-radius:13px;padding:12px;background:#54C5F8;color:#0C0F1D!important;font:700 12.5px/1 var(--body)!important;width:100%}
+.dm-go.dark{background:#10142A;color:#fff!important}
+.dm-go:disabled{opacity:.4;cursor:default}
+.dm-link{border:0;background:none;font:600 10.5px/1.2 var(--body)!important;color:#6A7094!important;text-decoration:underline;padding:4px;align-self:center}
+.dm-msg{border-radius:12px;padding:9px 10px;font-size:10.5px;line-height:1.4}
+.dm-msg b{display:block;font-size:11px;margin-bottom:2px}
+.dm-msg.block{background:#FFE9E3;color:#8A2A12}
+.dm-msg.info{background:#E0F3FD;color:#0B4F75}
+.dm-msg.warn{background:#FFF1CC;color:#6E5000}
+.dm-kv{display:flex;justify-content:space-between;gap:8px;font-size:10.5px;color:#6A7094;padding:5px 0;border-bottom:1px dashed #E3E6F2}
+.dm-kv:last-child{border-bottom:0}
+.dm-kv b{color:#10142A;font:700 10.5px/1.3 var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.dm-pin{display:flex;justify-content:center;gap:12px;margin:6px 0 2px}
+.dm-pin i{width:12px;height:12px;border-radius:50%;background:#E3E6F2;transition:background .15s}
+.dm-pin i.on{background:#10142A}
+.dm-keys{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.dm-keys button{border:0;background:#fff;border-radius:12px;padding:11px 0;font:700 15px/1 var(--display)!important;box-shadow:0 1px 0 #E3E6F2}
+.dm-keys button:active{background:#E6E8F2}
+.dm-keys .ghost{background:transparent;box-shadow:none}
+.dm-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;font-size:11px;color:#6A7094}
+.dm-center b{color:#10142A;font:800 17px/1.15 var(--display)}
+.dm-big{font:800 26px/1 var(--display)!important;font-variant-numeric:tabular-nums;color:#10142A}
+.dm-tick{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:#DDF7EC;color:#0B7A52;font-size:24px;font-weight:800;animation:pop .4s cubic-bezier(.3,1.6,.5,1)}
+.dm-tick.wait{background:#FFF1CC;color:#8A6200}
+@keyframes pop{from{transform:scale(.4)}to{transform:none}}
+.dm-spin{width:34px;height:34px;border:4px solid #D5D8E8;border-top-color:#10142A;border-radius:50%;animation:spin .8s linear infinite}
+.dm-signers{display:flex;flex-direction:column;gap:5px;width:100%;text-align:left}
+.dm-vf{position:relative;height:170px;border-radius:16px;background:#2A2F45;display:grid;place-items:center;overflow:hidden;flex:none}
+.dm-slip{width:70%;background:#FFFBEF;border-radius:4px;padding:12px 12px 10px;transform:rotate(-4deg);font:500 15px/1.35 "Segoe Print","Bradley Hand","Comic Sans MS",cursive;color:#2B2A6B;box-shadow:0 8px 18px rgba(0,0,0,.35)}
+.dm-slip span{display:block}
+.dm-scanline{position:absolute;left:14%;right:14%;height:2px;background:#54C5F8;box-shadow:0 0 12px #54C5F8;top:20%;animation:scan 1.3s ease-in-out infinite alternate}
+.dm-vf.done .dm-scanline{display:none}
+@keyframes scan{to{top:80%}}
+.dm-vf .corners{inset:12%}
+.dm-field{background:#fff;border:1.5px solid #E3E6F2;border-radius:10px;padding:6px 9px;min-height:36px;transition:border-color .3s,background .3s}
+.dm-field small{display:block;font-size:9px;color:#6A7094}
+.dm-field span{font:700 11px/1.35 var(--mono)}
+.dm-field.filled{border-color:#54C5F8;background:#F0FAFF}
+.dm-field.ok span::after{content:" ✓";color:#0B7A52}
+.dm-fields{display:flex;flex-direction:column;gap:5px}
+.dm-step{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:12px;padding:6px}
+.dm-step button{border:0;width:30px;height:30px;border-radius:9px;background:#E6E8F2;font:700 16px/1 var(--body)!important}
+.dm-step b{font:800 18px/1 var(--display);font-variant-numeric:tabular-nums}
+.dm-step b small{font:600 10px/1 var(--body);color:#6A7094;margin-left:3px}
+.dm-lock{height:6px;border-radius:3px;background:#E6E8F2;overflow:hidden}
+.dm-lock i{display:block;height:100%;background:#5EE3B0;transition:width 1s linear}
+.dm-lock.low i{background:#FF7A59}
+.dm-sms{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.dm-sms i{height:32px;border-radius:8px;background:#fff;border:1.5px solid #E3E6F2;display:grid;place-items:center;font:700 14px/1 var(--mono);font-style:normal}
+.dm-sms i.on{border-color:#10142A}
+.dm-who{align-self:flex-start;font:600 9.5px/1 var(--mono);padding:5px 8px;border-radius:999px;background:#FFF1CC;color:#6E5000}
+.dm-two{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.dm .toast{bottom:22px}
+.stage .toast{bottom:18px}
+.hero .phone:hover,.hero .phone:focus-within{animation-play-state:paused}
+.dm-seg{align-self:stretch}.dm-seg button{flex:1;padding:7px 0}
+.dm-bal em{display:block;margin-top:3px;font:500 9.5px/1.3 var(--mono);font-style:normal;color:#9AA3C4}
+.dm .tabbar{padding:10px 10px 18px}
+.hero h1{font-size:clamp(40px,4.9vw,66px)}
 </style>
 </head>
 <body>
@@ -630,8 +736,8 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
     <div class="wrap">
       <div class="hero-copy">
         <span class="status rise"><i></i>Open to senior &amp; lead roles · Lagos, UTC+1</span>
-        <h1 class="rise d1">I build Flutter apps that stay <span class="hl">calm</span> when the signal doesn't.</h1>
-        <p class="lede rise d2">I'm <strong>Henry Ifebunandu</strong>, a senior mobile engineer in Lagos. Most of my work is fintech: payments, cross-border FX and KYC for users in Nigeria and Ghana, on networks that drop without warning. I've been the lead or main engineer on two live finance apps, from the first architecture decision to the store release.</p>
+        <h1 class="rise d1">I've been writing Flutter since 2019. Most of it touches somebody's <span class="hl">money</span>.</h1>
+        <p class="lede rise d2">I'm <strong>Henry Ifebunandu</strong>, a senior mobile engineer in Lagos. I've been the lead or main engineer on two live finance apps, building payments, cross-border FX, business accounts and identity checks for users in Nigeria and Ghana.</p>
         <div class="hero-ctas rise d3">
           <a class="btn btn-primary" href="mailto:henryifebunandu@gmail.com">Email me</a>
           <a class="btn btn-ghost" href="#work">See my work</a>
@@ -645,46 +751,20 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
       </div>
 
       <div class="stage" id="stage">
-        <!-- LIVE DEMO SLOT: this HTML wallet is a lightweight stand-in.
-             To show a real Flutter build instead, replace the .screen contents with:
-             <iframe src="/demos/wallet/" title="Wallet demo built in Flutter" loading="lazy" style="width:100%;height:100%;border:0"></iframe> -->
+        <!-- Interactive demo: a small, fictional finance app built for this page. No real money or accounts. -->
         <div class="phone-wrap">
         <div class="phone">
           <div class="screen">
-            <div class="app">
-              <div class="app-status"><span>9:41</span><span class="sig">●●● 4G</span></div>
-              <div class="app-body">
-                <div class="app-top">
-                  <div class="app-title">Wallet</div>
-                  <span class="conn" id="conn"><i></i><span id="connText">Live</span></span>
-                </div>
-                <div class="bal">
-                  <small>Available balance</small>
-                  <b id="bal">₦482,150.00</b>
-                  <span class="sync" id="sync">Synced just now</span>
-                </div>
-                <div class="fund">
-                  <h4>Fund with Mobile Money</h4>
-                  <div class="via">Tier 1 account · limit ₦50,000 per transaction</div>
-                  <div class="amts" id="amts">
-                    <button class="amt" type="button" data-v="5000" aria-pressed="true">₦5,000</button>
-                    <button class="amt" type="button" data-v="20000" aria-pressed="false">₦20,000</button>
-                    <button class="amt" type="button" data-v="80000" aria-pressed="false">₦80,000</button>
-                  </div>
-                  <button class="go" id="go" type="button">Fund wallet</button>
-                </div>
-                <div class="txn" id="txn" role="status" aria-live="polite"><b>Ready</b>Pick an amount. Try ₦80,000 too.</div>
-              </div>
+            <div class="dm" id="dm">
+              <div class="app-status"><span>9:41</span><span>●●● 4G</span></div>
+              <div class="dm-view" id="dmView" aria-live="polite"><div class="dm-center"><b>Pocket demo</b>Loading…</div></div>
               <div class="tabbar" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
             </div>
             <div class="toast" id="toast" role="status" aria-live="polite"></div>
           </div>
         </div>
-        <button class="netbtn" id="net" type="button" aria-pressed="false">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 5.5a10 10 0 0 1 14 0M3.5 8.5a6.5 6.5 0 0 1 9 0M6 11.3a3 3 0 0 1 4 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="13.6" r="1.1" fill="currentColor"/></svg><span id="netText">Drop the network</span>
-        </button>
         </div>
-        <p class="stage-note"><b>Try it.</b> Tap "Drop the network", then "Fund wallet". The app keeps your balance on screen and waits for the payment instead of failing. Pick ₦80,000 to see a payment stopped before it starts, because it's over the account's limit.</p>
+        <p class="stage-note"><b>Try it.</b> A pocket version of things I've shipped: <b>Scan to pay</b> fills in bank details from a photo, <b>Buy IPO</b> pays in cedis at a locked rate, and <b>Business</b> mode needs a second person to approve every payment. Try sending ₦80,000 to see a limit stop it before it starts. It's a demo, so no real money moves.</p>
       </div>
     </div>
   </section>
@@ -692,7 +772,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
   <!-- ================= FACTS ================= -->
   <section class="metrics" aria-label="At a glance">
     <div class="wrap">
-      <div class="metric"><b>6+</b><span>years building mobile apps with Flutter, since 2019</span></div>
+      <div class="metric"><b>27K+</b><span>people using Ladder, per its App Store listing</span></div>
       <div class="metric"><b>2</b><span>live finance apps where I was the lead or main engineer</span></div>
       <div class="metric"><b>4</b><span>ways to pay built in: cards, mobile money, direct debit and bank transfers</span></div>
       <div class="metric"><b>3</b><span>currencies handled in one app: naira, cedi and dollar</span></div>
@@ -1047,11 +1127,11 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <span class="eyebrow">Focus</span>
           <h2>What teams trust me with</h2>
         </div>
-        <p>Patchy networks, many ways to pay, and strict rules on what each account can do. They make finance apps harder to build, and they're what I know best.</p>
+        <p>Many ways to pay, identity checks, and strict rules on what each account can do. They make finance apps harder to build, and they're what I know best.</p>
       </div>
       <div class="pillars">
-        <div class="pillar"><span class="rank">payments</span><h3>Every way people pay</h3><p>Cards, mobile money, direct debit and bank transfers, with account limits checked before any money moves.</p><p class="under">Flutterwave checkout · polled MoMo verification · NGN mandates with OTP · KYC tier gating</p></div>
-        <div class="pillar"><span class="rank">reliability</span><h3>Built for bad networks</h3><p>When the connection drops, the app keeps showing what it knows, reconnects by itself and lets people retry instead of failing silently.</p><p class="under">WebSocket heartbeat + backoff · manual retry · cold-start deep links · Shorebird patches</p></div>
+        <div class="pillar"><span class="rank">payments</span><h3>Every way people pay</h3><p>Cards, mobile money, direct debit and bank transfers, plus paying someone from a photo of their account details.</p><p class="under">Flutterwave checkout · polled MoMo verification · NGN mandates with OTP · Scan-to-Pay</p></div>
+        <div class="pillar"><span class="rank">trust</span><h3>Identity &amp; trust</h3><p>Selfie checks, account limits and second-person approvals, so the right person moves the right amount.</p><p class="under">ML Kit selfie capture · liveness_flutter · KYC tier limits · two-person approval</p></div>
         <div class="pillar"><span class="rank">ownership</span><h3>The person responsible</h3><p>Lead or main engineer on two live finance apps, accountable for how they're built, how they ship and what happens when something breaks.</p><p class="under">Ladder v2.0 primary engineer · FunZ technical owner for 2 years</p></div>
         <div class="pillar"><span class="rank">release</span><h3>Boring, repeatable releases</h3><p>Updates reach the App Store and Google Play the same way every time, and urgent fixes can go out without waiting for store review.</p><p class="under">Fastlane · GitHub Actions · Codemagic · pinned toolchains · cached dependencies</p></div>
       </div>
@@ -1112,7 +1192,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
         <span class="eyebrow">About</span>
         <h2>Mechanical engineer by training</h2>
         <p>I studied Mechanical Engineering at Yaba College of Technology and wrote my first professional Flutter code in 2019. Since then I've worked mostly on apps that move money: lending, investing, savings, transfers and bill pay.</p>
-        <p>I build for the conditions my users actually have: <strong>patchy networks, several ways to pay, and regulators who decide what each account tier can do.</strong></p>
+        <p>I build for the conditions my users actually have: <strong>several ways to pay, identity checks, and regulators who decide what each account tier can do.</strong></p>
         <p>Off the clock, there's always music on, anywhere from Kendrick to Don Moen. I'm usually mid-way through an anime, and I'll rewatch anything that bends reality: <em>The Matrix</em>, <em>Inception</em>, <em>Dark</em>.</p>
         <ul class="creds">
           <li><span>Education</span>ND &amp; HND, Mechanical Engineering · Yaba College of Technology</li>
@@ -1130,7 +1210,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
   <span class="k">remote:</span> <span class="v">true</span>
 
 <span class="k">dependencies:</span>
-  <span class="k">flaky_networks:</span> <span class="v">^handled</span>
+  <span class="k">kyc_flows:</span> <span class="v">^handled</span>
   <span class="k">payment_rails:</span> <span class="v">^4.0.0</span>
   <span class="k">currencies:</span> <span class="v">[NGN, GHS, USD]</span>
 
@@ -1167,7 +1247,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <!-- CV: add when ready -> <a href="/henry-ifebunandu-cv.pdf">CV</a> -->
         </div>
         <figure class="toon" aria-label="Cartoon of Henry wearing nerd glasses">
-          <p class="toon-bubble">Signal's good over here. Say hi!</p>
+          <p class="toon-bubble">Inbox is open. Say hi!</p>
           <svg viewBox="0 0 300 340" role="img" aria-label="Cartoon of Henry with a beard and thick nerd glasses">
             <defs>
               <pattern id="knit" width="12" height="10" patternUnits="userSpaceOnUse">
@@ -1243,129 +1323,269 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
 <script>
 (function(){
   var $ = function(id){ return document.getElementById(id); };
-  var stage = $('stage'), conn = $('conn'), connText = $('connText'), sync = $('sync');
-  var balEl = $('bal'), txn = $('txn'), go = $('go'), toastEl = $('toast');
-  var net = $('net'), netText = $('netText');
-
-  var online = true, balance = 482150, amount = 5000, TIER_LIMIT = 50000;
-  var lastSync = Date.now(), attempt = 0, retryIn = 0, retryTimer = null, toastTimer = null;
-  var polling = null; // {check, max, amount}
+  // ---- hero demo: a pocket finance app (fictional, no real money) ----
+  var view = $('dmView'), toastEl = $('toast'), toastTimer = null, timers = [];
+  var S = {
+    mode: 'personal', ngn: 482150, ghs: 2450, biz: 3240000, LIMIT: 50000, FEE: 10,
+    act: {
+      personal: [{ic:'↓', t:'Salary', s:'From Ifeoma Ventures', a:'+₦350,000.00', c:'in'}, {ic:'⚡', t:'Electricity', s:'Prepaid token', a:'-₦15,000.00', c:'out'}],
+      business: [{ic:'↓', t:'Customer payment', s:'Invoice #1042', a:'+₦820,000.00', c:'in'}]
+    },
+    pending: [], refN: 4821
+  };
+  var CONTACTS = [{n:'Tunde Bakare', b:'GTBank', no:'0123456789'}, {n:'Ama Mensah', b:'Access Bank', no:'0451230921'}];
+  var AMTS = {personal: [5000, 20000, 80000], business: [150000, 500000, 1200000]};
 
   function naira(v){ return '₦' + v.toLocaleString('en-NG', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function cedi(v){ return 'GH₵ ' + v.toLocaleString('en-GH', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+  function short(v){ return '₦' + v.toLocaleString('en-NG'); }
+  function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
   function toast(msg){
     toastEl.textContent = msg; toastEl.classList.add('show');
-    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2000);
+    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
   }
-  function setTxn(cls, title, body, retry){
-    txn.className = 'txn' + (cls ? ' ' + cls : '');
-    txn.innerHTML = '';
-    var b = document.createElement('b');
-    if (cls === 'wait') { var s = document.createElement('span'); s.className = 'spin'; b.appendChild(s); }
-    b.appendChild(document.createTextNode(title));
-    txn.appendChild(b);
-    txn.appendChild(document.createTextNode(body));
-    if (retry) {
-      var r = document.createElement('button'); r.type = 'button'; r.className = 'retrybtn'; r.textContent = 'Retry check';
-      r.addEventListener('click', retryCheck); txn.appendChild(document.createElement('br')); txn.appendChild(r);
-    }
-  }
-
-  // ---- heartbeat & sync label ----
-  setInterval(function(){
-    if (online) {
-      lastSync = Date.now();
-      conn.classList.remove('beat'); void conn.offsetWidth; conn.classList.add('beat');
-      sync.textContent = 'Synced just now · heartbeat ok';
-    } else {
-      var s = Math.round((Date.now() - lastSync)/1000);
-      sync.textContent = 'Offline · showing balance from ' + s + 's ago';
-    }
-  }, 1000);
-
-  // ---- exponential backoff ----
-  function scheduleRetry(){
-    var delay = Math.min(16, Math.pow(2, attempt)); // 1, 2, 4, 8, 16
-    retryIn = delay;
-    conn.className = 'conn retry';
-    connText.textContent = 'Retry in ' + retryIn + 's';
-    clearInterval(retryTimer);
-    retryTimer = setInterval(function(){
-      retryIn -= 1;
-      if (retryIn > 0) { connText.textContent = 'Retry in ' + retryIn + 's'; return; }
-      clearInterval(retryTimer);
-      conn.className = 'conn connecting'; connText.textContent = 'Connecting…';
-      setTimeout(function(){
-        if (online) { reconnected(); }
-        else { attempt += 1; scheduleRetry(); }
-      }, 700);
-    }, 1000);
-  }
-  function reconnected(){
-    clearInterval(retryTimer); attempt = 0;
-    conn.className = 'conn'; connText.textContent = 'Live';
-    lastSync = Date.now();
-    toast('Reconnected · balance synced');
-  }
-
-  net.addEventListener('click', function(){
-    online = !online;
-    net.setAttribute('aria-pressed', String(!online));
-    stage.classList.toggle('down', !online);
-    if (!online) {
-      netText.textContent = 'Restore the network';
-      attempt = 0; scheduleRetry();
-    } else {
-      netText.textContent = 'Drop the network';
-      // the next scheduled attempt picks the connection up; shorten the wait for the demo
-      if (retryIn > 1) { retryIn = 1; connText.textContent = 'Retry in 1s'; }
-    }
-  });
-
-  // ---- amount chips ----
-  Array.prototype.forEach.call(document.querySelectorAll('#amts .amt'), function(btn){
-    btn.addEventListener('click', function(){
-      Array.prototype.forEach.call(document.querySelectorAll('#amts .amt'), function(b){ b.setAttribute('aria-pressed','false'); });
-      btn.setAttribute('aria-pressed','true');
-      amount = parseInt(btn.getAttribute('data-v'), 10);
+  function ref(){ S.refN += 7; return 'DEMO-' + S.refN; }
+  var screen = null;
+  function render(html, handlers, key){
+    clearTimers();
+    var same = key && key === screen, top = view.scrollTop;
+    var focused = view.contains(document.activeElement) ? document.activeElement.getAttribute('data-a') : null;
+    screen = key || null;
+    view.innerHTML = html;
+    if (same) { view.scrollTop = top; }
+    else { view.classList.remove('enter'); void view.offsetWidth; view.classList.add('enter'); view.scrollTop = 0; }
+    view.querySelectorAll('[data-a]').forEach(function(el){
+      el.addEventListener('click', function(){ var f = handlers && handlers[el.getAttribute('data-a')]; if (f) f(el); });
     });
-  });
+    if (same && focused) { var f = view.querySelector('[data-a="' + focused + '"]'); if (f) f.focus(); }
+  }
+  function bar(title, back){ return '<div class="dm-bar"><button class="dm-back" type="button" data-a="' + (back || 'home') + '" aria-label="Back">‹</button>' + title + '</div>'; }
+  function row(r){ return '<div class="dm-row"><span class="ic">' + r.ic + '</span><span class="tx"><b>' + esc(r.t) + '</b><small>' + esc(r.s) + '</small></span><span class="am ' + r.c + '">' + r.a + '</span></div>'; }
+  var go = {home: home};
 
-  // ---- funding with pre-flight check + polled verification ----
-  go.addEventListener('click', function(){
-    if (polling) return;
-    if (amount > TIER_LIMIT) {
-      setTxn('block', 'Stopped before it started', ' ₦' + amount.toLocaleString() + ' is over this account\'s limit. Verify your ID to raise it. No money moved.');
-      return;
-    }
-    polling = { check: 0, max: 5, amount: amount };
-    go.disabled = true;
-    poll();
-  });
-  function poll(){
-    polling.check += 1;
-    setTxn('wait', 'Approve the prompt on your phone', ' Checking payment status · check ' + polling.check + ' of ' + polling.max);
-    setTimeout(function(){
-      if (!online) {
-        setTxn('stuck', 'Payment still pending', ' No connection, so we can’t confirm it yet. Your money isn’t lost. Retry when you’re back online.', true);
-        return;
-      }
-      if (polling.check >= 3) { complete(); } else { poll(); }
-    }, 1200);
+  // Home
+  function home(){
+    var biz = S.mode === 'business';
+    var acts = biz
+      ? [['send','💸','#E0F3FD','Send'], ['scan','📷','#DDF7EC','Scan to pay'], ['approvals','✅','#FFF1CC','Approvals']]
+      : [['send','💸','#E0F3FD','Send'], ['scan','📷','#DDF7EC','Scan to pay'], ['fx','📈','#FFE9E3','Buy IPO']];
+    var html =
+      '<div class="dm-top"><span class="dm-av' + (biz ? ' biz' : '') + '">' + (biz ? 'OF' : 'AO') + '</span>' +
+      '<span class="dm-hi">' + (biz ? 'Okoro Foods Ltd<small>Business account · Ada is signed in</small>' : 'Hi, Ada<small>Personal wallet</small>') + '</span></div>' +
+      '<span class="dm-seg" role="group" aria-label="Account"><button type="button" data-a="personal" aria-pressed="' + !biz + '">Personal</button><button type="button" data-a="business" aria-pressed="' + biz + '">Business</button></span>' +
+      '<div class="dm-bal' + (biz ? ' biz' : '') + '"><small>' + (biz ? 'Business balance' : 'Available balance') + '</small><b>' + naira(biz ? S.biz : S.ngn) + '</b>' +
+      '<span>' + (biz ? 'Payments need 2 signatories' : 'Tier 1 · ' + short(S.LIMIT) + ' per transfer') + '</span>' + (biz ? '' : '<em>Cedi wallet · ' + cedi(S.ghs) + '</em>') + '</div>' +
+      '<div class="dm-acts">' + acts.map(function(a){
+        var badge = (a[0] === 'approvals' && S.pending.length) ? '<span class="dm-badge">' + S.pending.length + '</span>' : '';
+        return '<button class="dm-act" type="button" data-a="' + a[0] + '"><i style="background:' + a[2] + '" aria-hidden="true">' + a[1] + '</i>' + a[3] + badge + '</button>';
+      }).join('') + '</div>' +
+      '<div class="dm-h">Recent</div><div class="dm-list">' + S.act[S.mode].slice(0, 4).map(row).join('') + '</div>';
+    render(html, {
+      personal: function(){ if (S.mode !== 'personal'){ S.mode = 'personal'; home(); } },
+      business: function(){ if (S.mode !== 'business'){ S.mode = 'business'; home(); toast('Business mode: only business features'); } },
+      send: function(){ track('demo-flow', {flow: 'send-' + S.mode}); send(); },
+      scan: function(){ track('demo-flow', {flow: 'scan'}); scan(); },
+      fx: function(){ track('demo-flow', {flow: 'fx'}); fx(); },
+      approvals: function(){ track('demo-flow', {flow: 'approvals'}); approvals(); }
+    });
   }
-  function retryCheck(){
-    if (!polling) return;
-    if (!online) {
-      setTxn('stuck', 'Still offline', ' Restore the network, then retry. The payment is waiting.', true);
-      return;
+
+  // Send money, with the limit checked before anything starts
+  function send(pre){
+    var biz = S.mode === 'business', list = AMTS[S.mode];
+    var st = {to: pre || CONTACTS[0], amt: list[0]};
+    function draw(){
+      var over = !biz && st.amt > S.LIMIT;
+      var who = pre
+        ? '<div class="dm-card"><small>Sending to · from your scan</small><b>' + esc(pre.n.toUpperCase()) + '</b><br>' + esc(pre.b) + ' · ' + pre.no + '</div>'
+        : '<div class="dm-pick">' + CONTACTS.map(function(c, i){
+            return '<button type="button" data-a="to' + i + '" aria-pressed="' + (st.to === c) + '"><span class="dm-av" style="width:24px;height:24px;font-size:9px">' + c.n.split(' ').map(function(w){return w[0];}).join('') + '</span><span>' + esc(c.n) + '<small>' + esc(c.b) + ' · ••' + c.no.slice(-4) + '</small></span></button>';
+          }).join('') + '</div>';
+      var msg = over
+        ? '<div class="dm-msg block" role="alert"><b>Stopped before it started</b>That\'s over your Tier 1 limit of ' + short(S.LIMIT) + ' per transfer, so nothing was sent. Verify your ID to move up a tier.</div>'
+        : (biz ? '<div class="dm-msg info"><b>Needs a second signatory</b>Business transfers wait for someone else to approve them.</div>'
+               : '<div class="dm-kv"><span>Fee</span><b>' + naira(S.FEE) + '</b></div>');
+      render(bar(biz ? 'Business transfer' : 'Send money') +
+        '<div class="dm-h">To</div>' + who +
+        '<div class="dm-h">Amount</div><div class="dm-amts">' + list.map(function(v, i){
+          return '<button type="button" data-a="amt' + i + '" aria-pressed="' + (st.amt === v) + '">' + short(v) + '</button>';
+        }).join('') + '</div>' + msg +
+        '<button class="dm-go" type="button" data-a="next"' + (over ? ' disabled' : '') + '>Continue</button>', {
+        home: home, to0: function(){ st.to = CONTACTS[0]; draw(); }, to1: function(){ st.to = CONTACTS[1]; draw(); },
+        amt0: function(){ st.amt = list[0]; draw(); }, amt1: function(){ st.amt = list[1]; draw(); },
+        amt2: function(){ st.amt = list[2]; draw(); if (!biz && list[2] > S.LIMIT) track('demo-limit'); },
+        next: function(){
+          pin('Confirm ' + short(st.amt) + ' to ' + st.to.n.split(' ')[0], function(){
+            processing(biz ? 'Sending for approval…' : 'Sending…', function(){
+              if (biz) {
+                var p = {id: ref(), to: st.to, amt: st.amt};
+                S.pending.push(p);
+                S.act.business.unshift({ic:'⏳', t:'To ' + st.to.n, s:'Waiting for approval', a:'-' + naira(st.amt), c:'wait'});
+                waiting(p);
+              } else {
+                S.ngn -= st.amt + S.FEE;
+                S.act.personal.unshift({ic:'↑', t:'To ' + st.to.n, s:st.to.b, a:'-' + naira(st.amt), c:'out'});
+                receipt('Sent', naira(st.amt), [['To', st.to.n], ['Bank', st.to.b], ['Fee', naira(S.FEE)], ['Ref', ref()]], 'send');
+              }
+            });
+          }, function(){ draw(); });
+        }
+      }, 'send');
     }
-    poll();
+    draw();
   }
-  function complete(){
-    balance += polling.amount;
-    balEl.textContent = naira(balance);
-    setTxn('ok', 'Wallet funded', ' ' + naira(polling.amount) + ' added via Mobile Money after ' + polling.check + ' status checks.');
-    toast('+' + naira(polling.amount));
-    polling = null; go.disabled = false;
+
+  // PIN pad (any 4 digits)
+  function pin(title, done, back){
+    var code = '';
+    function draw(){
+      render(bar('Enter your PIN', 'back') +
+        '<div class="dm-center" style="flex:0;gap:4px;padding-top:6px">' + esc(title) + '<div class="dm-pin">' + [0,1,2,3].map(function(i){ return '<i' + (i < code.length ? ' class="on"' : '') + '></i>'; }).join('') + '</div><small>Any 4 digits work</small></div>' +
+        '<div class="dm-keys">' + ['1','2','3','4','5','6','7','8','9','','0','⌫'].map(function(k){
+          return k ? '<button type="button" data-a="k' + k + '" aria-label="' + (k === '⌫' ? 'Delete' : k) + '">' + k + '</button>' : '<span class="ghost"></span>';
+        }).join('') + '</div>', handlers, 'pin');
+    }
+    var handlers = {back: back};
+    '0123456789⌫'.split('').forEach(function(k){
+      handlers['k' + k] = function(){
+        if (k === '⌫') code = code.slice(0, -1); else if (code.length < 4) code += k;
+        draw();
+        if (code.length === 4) later(done, 250);
+      };
+    });
+    draw();
+  }
+
+  function processing(label, next){
+    render('<div class="dm-center"><div class="dm-spin"></div>' + esc(label) + '</div>');
+    later(next, 1100);
+  }
+
+  function receipt(title, amount, rows, flow){
+    track('demo-done', {flow: flow});
+    render('<div class="dm-center" style="flex:0;padding-top:10px"><div class="dm-tick">✓</div><b>' + esc(title) + '</b><span class="dm-big">' + amount + '</span></div>' +
+      '<div class="dm-card">' + rows.map(function(r){ return '<div class="dm-kv"><span>' + esc(r[0]) + '</span><b>' + esc(r[1]) + '</b></div>'; }).join('') + '</div>' +
+      '<button class="dm-go dark" type="button" data-a="home">Done</button>', {home: home});
+  }
+
+  // Business: waiting for the second signatory
+  function waiting(p){
+    render('<div class="dm-center" style="flex:0;padding-top:6px"><div class="dm-tick wait">⏳</div><b>Waiting for approval</b>' + short(p.amt) + ' to ' + esc(p.to.n) + '</div>' +
+      '<div class="dm-signers"><div class="dm-row"><span class="ic">AO</span><span class="tx"><b>Ada Okoro</b><small>Started it</small></span><span class="am">—</span></div>' +
+      '<div class="dm-row"><span class="ic">CE</span><span class="tx"><b>Chidi Eze</b><small>Signatory</small></span><span class="am wait">Pending</span></div></div>' +
+      '<div class="dm-msg warn"><b>You can\'t approve your own transfer</b>Whoever starts a payment is never the one who approves it.</div>' +
+      '<button class="dm-go" type="button" data-a="chidi">Switch to Chidi to approve</button><button class="dm-link" type="button" data-a="home">Back to home</button>',
+      {home: home, chidi: function(){ approve(p); }});
+  }
+
+  function approvals(){
+    var html = bar('Approvals') + (S.pending.length
+      ? '<div class="dm-list">' + S.pending.map(function(p, i){
+          return '<button class="dm-row" type="button" data-a="p' + i + '" style="border:0;text-align:left"><span class="ic">⏳</span><span class="tx"><b>To ' + esc(p.to.n) + '</b><small>Started by Ada · needs 1 approval</small></span><span class="am wait">' + short(p.amt) + '</span></button>';
+        }).join('') + '</div>'
+      : '<div class="dm-center">Nothing waiting.<br>Send a business transfer to see one here.</div>');
+    var h = {home: home};
+    S.pending.forEach(function(p, i){ h['p' + i] = function(){ waiting(p); }; });
+    render(html, h);
+  }
+
+  // Second signatory approves with an SMS code
+  function approve(p){
+    var code = '', digits = '583014';
+    function draw(){
+      render(bar('Approve payment', 'back') + '<span class="dm-who">Signed in as Chidi Eze · signatory</span>' +
+        '<div class="dm-card"><div class="dm-kv"><span>To</span><b>' + esc(p.to.n) + '</b></div><div class="dm-kv"><span>Amount</span><b>' + naira(p.amt) + '</b></div><div class="dm-kv"><span>Started by</span><b>Ada Okoro</b></div></div>' +
+        '<div class="dm-h">Code sent by SMS to •••• 4821</div><div class="dm-sms">' + [0,1,2,3,4,5].map(function(i){ return '<i' + (i < code.length ? ' class="on"' : '') + '>' + (code[i] || '') + '</i>'; }).join('') + '</div>' +
+        (code.length < 6 ? '<button class="dm-go dark" type="button" data-a="fill">Fill code from SMS</button>'
+          : '<div class="dm-two"><button class="dm-go dark" type="button" data-a="decline" style="background:#E6E8F2;color:#10142A!important">Decline</button><button class="dm-go" type="button" data-a="ok">Approve</button></div>'), {
+        back: function(){ waiting(p); },
+        fill: function(){
+          var i = 0;
+          (function step(){ code = digits.slice(0, ++i); draw(); if (i < 6) later(step, 110); })();
+        },
+        decline: function(){
+          S.pending.splice(S.pending.indexOf(p), 1);
+          S.act.business[0] = {ic:'✕', t:'To ' + p.to.n, s:'Declined by Chidi', a:naira(0), c:'out'};
+          toast('Declined. No money moved.'); home();
+        },
+        ok: function(){
+          processing('Approving…', function(){
+            S.pending.splice(S.pending.indexOf(p), 1); S.biz -= p.amt;
+            S.act.business = S.act.business.filter(function(r){ return r.c !== 'wait' || r.t !== 'To ' + p.to.n; });
+            S.act.business.unshift({ic:'↑', t:'To ' + p.to.n, s:'Approved by Chidi', a:'-' + naira(p.amt), c:'out'});
+            receipt('Approved and sent', naira(p.amt), [['To', p.to.n], ['Started by', 'Ada Okoro'], ['Approved by', 'Chidi Eze'], ['Ref', p.id]], 'business');
+          });
+        }
+      }, 'approve');
+    }
+    draw();
+  }
+
+  // Scan to pay: details read from a handwritten slip
+  function scan(){
+    var c = CONTACTS[0], vals = [['Account number', c.no], ['Bank', c.b], ['Account name', c.n.toUpperCase()]], n = 0;
+    function draw(){
+      render(bar('Scan to pay') +
+        '<div class="dm-vf' + (n ? ' done' : '') + '"><div class="dm-slip"><span>' + c.n + '</span><span>' + c.b + '</span><span>' + c.no.replace(/(\d{4})(\d{3})(\d{3})/, '$1 $2 $3') + '</span></div><div class="corners"></div><div class="dm-scanline"></div></div>' +
+        '<div class="dm-fields">' + vals.map(function(v, i){
+          return '<div class="dm-field' + (i < n ? ' filled' : '') + (i === 2 && n === 3 ? ' ok' : '') + '"><small>' + v[0] + (i === 2 ? ' · checked with the bank' : '') + '</small><span>' + (i < n ? esc(v[1]) : '&nbsp;') + '</span></div>';
+        }).join('') + '</div>' +
+        (n === 3 ? '<button class="dm-go" type="button" data-a="pay">Send to ' + c.n.split(' ')[0] + '</button>' : '<div class="dm-center" style="flex:0">Reading the photo…</div>'), {
+        home: home, pay: function(){ send(c); }
+      }, 'scan');
+    }
+    draw();
+    later(function step(){ n++; draw(); if (n < 3) later(step, 450); else toast('Filled from a photo. No typing.'); }, 1500);
+  }
+
+  // Buy naira-priced IPO units, paying in cedis at a locked rate
+  function fx(){
+    var st = {units: 50, rate: 128.5, locked: false, left: 0, expired: false};
+    var PRICE = 1000, LOCK = 20;
+    function cost(){ var g = st.units * PRICE / st.rate; return Math.round(g * 1.01 * 100) / 100; }
+    function draw(){
+      var total = st.units * PRICE, pay = cost();
+      var lock = st.expired
+        ? '<div class="dm-msg warn" role="alert"><b>Your quote expired</b>The rate is now ₦' + st.rate.toFixed(2) + ' per cedi. You\'ll pay ' + cedi(pay) + '. Confirm the new amount to continue.</div><button class="dm-go dark" type="button" data-a="relock">Confirm new rate</button>'
+        : st.locked
+          ? '<div class="dm-kv" style="border:0"><span>Rate locked</span><b id="dmLeft">0:' + String(st.left).padStart(2, '0') + '</b></div><div class="dm-lock' + (st.left <= 5 ? ' low' : '') + '"><i style="width:' + (st.left / LOCK * 100) + '%"></i></div>' +
+            '<button class="dm-go" type="button" data-a="pay">Pay ' + cedi(pay) + '</button><button class="dm-link" type="button" data-a="expire">Skip ahead: let the quote expire</button>'
+          : '<button class="dm-go dark" type="button" data-a="lock">Lock this rate</button>';
+      render(bar('Buy IPO units') +
+        '<div class="dm-card"><small>Sahel Energy Plc · IPO · priced in naira</small><b>' + short(PRICE) + ' per unit</b></div>' +
+        '<div class="dm-step"><button type="button" data-a="minus" aria-label="Fewer units"' + (st.locked ? ' disabled' : '') + '>−</button><b>' + st.units + '<small>units</small></b><button type="button" data-a="plus" aria-label="More units"' + (st.locked ? ' disabled' : '') + '>+</button></div>' +
+        '<div class="dm-card"><div class="dm-kv"><span>Units cost</span><b>' + naira(total) + '</b></div><div class="dm-kv"><span>Rate</span><b>₦' + st.rate.toFixed(2) + ' / GH₵</b></div><div class="dm-kv"><span>Fee (1%)</span><b>incl.</b></div><div class="dm-kv"><span>You pay</span><b>' + cedi(pay) + '</b></div></div>' +
+        '<small style="font-size:9.5px;color:#6A7094">Paying from your cedi wallet · ' + cedi(S.ghs) + '</small>' + lock, {
+        home: home,
+        minus: function(){ if (st.units > 10) { st.units -= 10; draw(); } },
+        plus: function(){ if (st.units < 150) { st.units += 10; draw(); } },
+        lock: startLock, relock: function(){ track('demo-requote'); startLock(); },
+        expire: function(){ st.left = 1; tick(); },
+        pay: function(){
+          clearTimers();
+          var paid = cost(), units = st.units, rate = st.rate;
+          pin('Pay ' + cedi(paid), function(){
+            processing('Buying units…', function(){
+              S.ghs = Math.round((S.ghs - paid) * 100) / 100;
+              S.act.personal.unshift({ic:'📈', t:units + ' Sahel Energy units', s:'Paid in cedis', a:'-' + cedi(paid), c:'out'});
+              receipt('Units bought', cedi(paid), [['Units', units + ' × ' + short(PRICE)], ['Locked rate', '₦' + rate.toFixed(2) + ' / GH₵'], ['From', 'Cedi wallet'], ['Ref', ref()]], 'fx');
+            });
+          }, function(){ st.locked = false; draw(); });
+        }
+      }, 'fx');
+      if (st.locked && !st.expired) later(tick, 1000);
+    }
+    function startLock(){ st.locked = true; st.expired = false; st.left = LOCK; draw(); }
+    function tick(){
+      st.left--;
+      if (st.left <= 0) { st.locked = false; st.expired = true; st.rate = Math.round((st.rate - 0.6) * 100) / 100; draw(); return; }
+      var el = $('dmLeft');
+      if (el) { el.textContent = '0:' + String(st.left).padStart(2, '0'); var b = view.querySelector('.dm-lock'); b.classList.toggle('low', st.left <= 5); b.firstChild.style.width = (st.left / LOCK * 100) + '%'; }
+      later(tick, 1000);
+    }
+    draw();
   }
 
   // ---- open a deep dive from the URL hash ----
@@ -1389,7 +1609,6 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
   document.addEventListener('click', function(e){
     var a = e.target.closest('a, button'); if (!a) return;
     if (a.id === 'copy') return track('copy-email');
-    if (a.id === 'net') return track('network-toggle', {to: a.getAttribute('aria-pressed') === 'true' ? 'offline' : 'online'});
     var href = a.getAttribute('href') || '';
     var where = a.closest('section, header, footer'); where = where ? (where.id || where.tagName.toLowerCase()) : 'page';
     if (href.indexOf('mailto:') === 0) return track('email-click', {where: where});
@@ -1398,6 +1617,8 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
       track('outbound', {site: site, where: where});
     }
   });
+
+  home();
 
   // ---- cartoon: eyes follow the cursor ----
   (function(){

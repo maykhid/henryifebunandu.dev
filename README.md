@@ -1,6 +1,6 @@
 # Henry Ifebunandu: portfolio site
 
-This is a static site (plain HTML/CSS/JS in one file) built around one line: *I build Flutter apps that stay calm when the signal doesn't.*
+This is a static site (plain HTML/CSS/JS in one file) built around one line: *I've been writing Flutter since 2019. Most of it touches somebody's money.*
 
 ## Files
 
@@ -32,19 +32,13 @@ Also check:
 
 ## The hero demo
 
-The phone in the hero is a small HTML wallet. It shows your thesis in action:
-- **Drop the network**: the live connection indicator falls back to exponential backoff (1s, 2s, 4s, 8s, 16s), and the last-synced balance stays on screen.
-- **Fund wallet**: shows Mobile Money verification by polling. If the connection drops mid-payment, it offers a manual **Retry check**.
-- **₦80,000**: gets blocked before the payment starts, because it's over the Tier 1 KYC limit.
+The phone in the hero is a small, fictional finance app built in HTML for this page. No real accounts or money are involved, and every name in it is made up. Each flow is a pocket version of something you shipped:
+- **Send**: a ₦80,000 transfer is stopped before it starts, because it's over the Tier 1 limit. Any 4-digit PIN works.
+- **Scan to pay**: bank details are read from a handwritten slip and checked before you send (FunZ Scan-to-Pay).
+- **Buy IPO**: naira-priced IPO units paid in cedis at a locked rate. If the quote expires, the user has to confirm the new amount (Ladder FX).
+- **Business**: transfers wait for a second signatory, who approves with an SMS code. Whoever starts a payment can't approve it (FunZ Business).
 
-To replace it with a real Flutter build:
-
-```bash
-flutter build web --release --base-href /demos/wallet/
-cp -r build/web/ ../henry-portfolio/demos/wallet/
-```
-
-Then find the `LIVE DEMO SLOT` comment and swap the `.screen` contents for the `<iframe>` shown there. Keep the HTML version as the default, and load the Flutter build when someone taps it, so the first page load stays fast.
+Umami records `demo-flow`, `demo-done`, `demo-limit` and `demo-requote` events, so you can see which flows visitors try.
 
 ## Deploy (free)
 
