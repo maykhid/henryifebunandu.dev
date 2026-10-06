@@ -592,6 +592,16 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
 .also.two{grid-template-columns:repeat(2,1fr)}
 @media (max-width:640px){.also.two{grid-template-columns:1fr}}
 .cs-head.solo{grid-template-columns:1fr}.cs-head.solo .hook{max-width:44em}
+
+/* ---------- compact stack + earlier ---------- */
+.stack-list{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;margin:0}
+.stack-list > div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line);min-width:0}
+.stack-list dt{font:500 13px/1.6 var(--mono);color:var(--sky)}
+.stack-list > div:nth-child(4n+2) dt,.stack-list > div:nth-child(4n+3) dt{color:var(--butter)}
+.stack-list dd{margin:0;font-size:15.5px;color:#C9CFE6}
+.earlier{grid-template-columns:repeat(3,1fr)}
+@media (max-width:960px){.stack-list{grid-template-columns:1fr}}
+@media (max-width:640px){.stack-list > div{grid-template-columns:1fr;gap:4px}.earlier{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -621,7 +631,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
       <div class="hero-copy">
         <span class="status rise"><i></i>Open to senior &amp; lead roles · Lagos, UTC+1</span>
         <h1 class="rise d1">I build Flutter apps that stay <span class="hl">calm</span> when the signal doesn't.</h1>
-        <p class="lede rise d2">I'm <strong>Henry Ifebunandu</strong>, a senior mobile engineer in Lagos. Most of my work is fintech: payments, cross-border FX and KYC for users in Nigeria and Ghana, on networks that drop without warning. I've been the lead or primary engineer on two production apps, including a ground-up rewrite that replaced the live product.</p>
+        <p class="lede rise d2">I'm <strong>Henry Ifebunandu</strong>, a senior mobile engineer in Lagos. Most of my work is fintech: payments, cross-border FX and KYC for users in Nigeria and Ghana, on networks that drop without warning. I've been the lead or main engineer on two live finance apps, from the first architecture decision to the store release.</p>
         <div class="hero-ctas rise d3">
           <a class="btn btn-primary" href="mailto:henryifebunandu@gmail.com">Email me</a>
           <a class="btn btn-ghost" href="#work">See my work</a>
@@ -714,8 +724,8 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
               <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Riverpod</span><span class="tag">GetIt</span><span class="tag">WebSockets</span><span class="tag">Shorebird</span></div>
               <h3>Ladder</h3>
               <p class="hook">A personal-finance app for Nigeria and Ghana: save, invest, budget and get help from an AI assistant.</p>
-              <p class="inshort"><b>In short</b>I rebuilt the whole app from scratch and replaced the old version while people were using it. The store rating went up after launch.</p>
-              <p class="meta"><span>Role:</span> Mobile Engineer, primary engineer on v2.0 · <span>Sep 2025 – present</span> · remote from Lagos</p>
+              <p class="inshort"><b>In short</b>I was the main engineer on v2, a rebuild of the whole app that replaced the old version while people were using it.</p>
+              <p class="meta"><span>Role:</span> Senior Mobile Engineer, primary engineer on v2.0 · <span>Sep 2025 – present</span> · remote from Lagos</p>
               <div class="app-stats">
                 <div><b>27K+</b><span>active users, per the App Store listing</span></div>
                 <div><b>2</b><span>countries: Nigeria and Ghana</span></div>
@@ -748,7 +758,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
             <div>
               <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Locked quotes</span><span class="tag">Typed error codes</span><span class="tag">Dio</span></div>
               <p class="hook">A user in Accra pays in cedis for IPO units priced in naira, at a rate that can't change under them halfway through paying.</p>
-              <p class="meta"><span>Where:</span> Ladder · Mobile Engineer · Nigeria &amp; Ghana</p>
+              <p class="meta"><span>Where:</span> Ladder · Senior Mobile Engineer · Nigeria &amp; Ghana</p>
             </div>
           </div>
 <div class="cs-body">
@@ -791,7 +801,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
                 <li><b>Release tooling:</b> a makefile for builds and Shorebird over-the-air patches, plus git hooks that bump the version automatically.</li>
               </ul>
             </div>
-            <div class="cell full"><h4>Outcome</h4><p>v2 replaced v1 in production, is live in both countries, and the app's store rating went up after launch. I wrote most of v2's code, about 78% of the commits. Ladder's store listing now reports 27K+ active users and $2M+ saved.</p></div>
+            <div class="cell full"><h4>Outcome</h4><p>v2 replaced v1 in production and is live in Nigeria and Ghana. I wrote most of it: about 78% of v2's commits. Ladder's store listing now reports 27K+ active users and $2M+ saved.</p></div>
           </div>
               </div>
             </details>
@@ -1042,7 +1052,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
       <div class="pillars">
         <div class="pillar"><span class="rank">payments</span><h3>Every way people pay</h3><p>Cards, mobile money, direct debit and bank transfers, with account limits checked before any money moves.</p><p class="under">Flutterwave checkout · polled MoMo verification · NGN mandates with OTP · KYC tier gating</p></div>
         <div class="pillar"><span class="rank">reliability</span><h3>Built for bad networks</h3><p>When the connection drops, the app keeps showing what it knows, reconnects by itself and lets people retry instead of failing silently.</p><p class="under">WebSocket heartbeat + backoff · manual retry · cold-start deep links · Shorebird patches</p></div>
-        <div class="pillar"><span class="rank">ownership</span><h3>The person responsible</h3><p>Lead or main engineer on two live finance apps. At Ladder, I rebuilt the whole app and swapped out the old version while people were using it.</p><p class="under">Ladder v2.0 rewrite · FunZ technical owner for 2 years</p></div>
+        <div class="pillar"><span class="rank">ownership</span><h3>The person responsible</h3><p>Lead or main engineer on two live finance apps, accountable for how they're built, how they ship and what happens when something breaks.</p><p class="under">Ladder v2.0 primary engineer · FunZ technical owner for 2 years</p></div>
         <div class="pillar"><span class="rank">release</span><h3>Boring, repeatable releases</h3><p>Updates reach the App Store and Google Play the same way every time, and urgent fixes can go out without waiting for store review.</p><p class="under">Fastlane · GitHub Actions · Codemagic · pinned toolchains · cached dependencies</p></div>
       </div>
     </div>
@@ -1058,7 +1068,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
         </div>
       </div>
       <ol class="timeline" reversed>
-        <li class="job"><time>Sep 2025 – present<span>Accra, remote from Lagos</span></time><div><h3>Mobile Engineer <span>· Ladder</span></h3><p>Primary engineer on the v2.0 rewrite that replaced the live v1. Built the naira/cedi/dollar FX layer, the payments experience, the "Lady" AI assistant, selfie KYC capture and the release tooling for an app serving Nigeria and Ghana.</p></div></li>
+        <li class="job"><time>Sep 2025 – present<span>Accra, remote from Lagos</span></time><div><h3>Senior Mobile Engineer <span>· Ladder</span></h3><p>Primary engineer on Ladder v2.0 for Nigeria and Ghana. Own the app's architecture, the naira/cedi/dollar FX layer, payments, the "Lady" AI assistant, selfie KYC capture and the release tooling.</p></div></li>
         <li class="job"><time>Aug 2024 – Jul 2026<span>Lagos</span></time><div><h3>Lead Mobile Engineer <span>· FunZ</span></h3><p>Primary technical owner of a consumer and business fintech app for two years. Built Scan-to-Pay and the FunZ Business vertical, and automated releases to both stores.</p></div></li>
         <li class="job"><time>Feb 2024 – Aug 2024<span>Lagos · contract</span></time><div><h3>Mobile Engineer <span>· GetEquity</span></h3><p>Refactored legacy Flutter modules into modular Provider-based packages, added Shorebird OTA updates for critical patches, and built release workflows on Codemagic. The platform served 10K+ daily active investors.</p></div></li>
         <li class="job"><time>May 2022 – Feb 2024<span>Lagos</span></time><div><h3>Mobile Engineer <span>· Traverse Apps</span></h3><p>Cross-platform products for finance and accounting clients in Flutter and Jetpack Compose, with Firebase and Ably real-time features. Shipped Floatr, a loan-disbursement app that reached 5,000+ installs in 5 months, and AACSL, a mobile client that automates payroll and bookkeeping work for a UK/Nigerian chartered-accounting firm.</p></div></li>
@@ -1067,7 +1077,6 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
         <ul>
           <li><b>Drugstore.ng <span>2021 – 22</span></b><p>Nigeria's online pharmacy app, with personalised drug requests and dynamic pricing across pharmacies. Shipped in 3 months against a 4-month plan.</p></li>
           <li><b>Whipik <span>2022</span></b><p>Launched "Become a Writer", cutting publishing-rights approval from days to near-instant. Analytics via Firebase, Mixpanel and Branch.io.</p></li>
-          <li><b>PureMatch <span>2023</span></b><p>Flutter contract work.</p></li>
           <li><b>WePrototype <span>2019 – 20</span></b><p>Flutter, GraphQL and AWS Rekognition. My first professional Flutter work.</p></li>
         </ul>
       </div>
@@ -1084,14 +1093,14 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
         </div>
         <p>Dart and Flutter every day. Kotlin and Swift when a platform channel needs them.</p>
       </div>
-      <div class="stack">
-        <div class="group"><h3>mobile</h3><div class="chips"><span class="chip">Dart</span><span class="chip">Flutter</span><span class="chip">Jetpack Compose</span><span class="chip">Kotlin &amp; Swift platform channels</span></div></div>
-        <div class="group"><h3>architecture</h3><div class="chips"><span class="chip">Riverpod</span><span class="chip">BLoC</span><span class="chip">Provider</span><span class="chip">GetIt</span><span class="chip">Injectable</span><span class="chip">Clean Architecture</span><span class="chip">Design tokens</span><span class="chip">MVVM</span><span class="chip">Feature-first modules</span></div></div>
-        <div class="group"><h3>payments</h3><div class="chips"><span class="chip">Flutterwave</span><span class="chip">Paystack</span><span class="chip">Mobile Money</span><span class="chip">Multi-currency FX</span><span class="chip">NGN bank mandates</span><span class="chip">Direct debit</span><span class="chip">OTP flows</span></div></div>
-        <div class="group"><h3>data &amp; real-time</h3><div class="chips"><span class="chip">REST</span><span class="chip">GraphQL</span><span class="chip">WebSockets</span><span class="chip">Server-Sent Events</span><span class="chip">Dio</span><span class="chip">Firebase Auth</span><span class="chip">Firestore</span><span class="chip">Cloud Functions</span><span class="chip">Hive</span></div></div>
-        <div class="group"><h3>security &amp; ML</h3><div class="chips"><span class="chip">Biometric &amp; PIN auth</span><span class="chip">Keychain</span><span class="chip">Encrypted storage</span><span class="chip">Payload decryption</span><span class="chip">PII-safe logging</span><span class="chip">ML Kit face detection</span><span class="chip">Multimodal LLM extraction</span></div></div>
-        <div class="group"><h3>release &amp; observability</h3><div class="chips"><span class="chip">Fastlane</span><span class="chip">Codemagic</span><span class="chip">GitHub Actions</span><span class="chip">Shorebird</span><span class="chip">App Store Connect</span><span class="chip">Play Console</span><span class="chip">Compile-time feature flags</span><span class="chip">Sentry</span><span class="chip">Crashlytics</span><span class="chip">Mixpanel</span><span class="chip">Kochava</span></div></div>
-      </div>
+      <dl class="stack-list">
+        <div><dt>mobile</dt><dd>Dart · Flutter · Jetpack Compose · Kotlin &amp; Swift platform channels</dd></div>
+        <div><dt>architecture</dt><dd>Riverpod · BLoC · Provider · GetIt · Clean Architecture · feature-first modules</dd></div>
+        <div><dt>payments</dt><dd>Flutterwave · Paystack · Mobile Money · NGN bank mandates · multi-currency FX</dd></div>
+        <div><dt>data &amp; real-time</dt><dd>REST · GraphQL · WebSockets · Server-Sent Events · Dio · Firebase · Hive</dd></div>
+        <div><dt>security &amp; ML</dt><dd>Biometric &amp; PIN auth · encrypted storage · ML Kit face detection · multimodal LLM extraction</dd></div>
+        <div><dt>release</dt><dd>Fastlane · Codemagic · GitHub Actions · Shorebird · Sentry · Crashlytics</dd></div>
+      </dl>
     </div>
   </section>
 
