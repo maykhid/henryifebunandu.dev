@@ -726,6 +726,15 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
 .mini-shots .phone .screen{border-radius:24px}
 .mini-shots .phone::after{top:10px;height:13px}
 .dm .app-status{padding-top:18px}
+
+/* Lady panorama: two store images that join into one */
+.gallery .pano{flex:none;display:flex;scroll-snap-align:start;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.gallery .pano img{border:0;border-radius:0;scroll-snap-align:none}
+/* gallery fills the card width on larger screens, swipes on phones */
+@media (min-width:641px){
+  .gallery{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:14px;overflow:visible;padding-bottom:0}
+  .gallery img{width:100%}
+}
 </style>
 </head>
 <body>
@@ -759,6 +768,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
         <div class="hero-ctas rise d3">
           <a class="btn btn-primary" href="mailto:henryifebunandu@gmail.com">Email me</a>
           <a class="btn btn-ghost" href="#work">See my work</a>
+          <a class="btn btn-ghost" href="https://docs.google.com/document/d/1AGjyF6OA3aF0HarBmbmpifeQHL2j5BucJPpuHda46rk/edit?usp=sharing" target="_blank" rel="noopener" data-cv="hero">Resume ↗</a>
         </div>
         <div class="elsewhere rise d4">
           <a href="https://github.com/maykhid">GitHub</a>
@@ -805,7 +815,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <span class="eyebrow">Work</span>
           <h2>Two finance apps, end to end</h2>
         </div>
-        <p>Start with the app. Open any deep dive for the full story, from the problem to the trade-offs and the outcome. FunZ screens are from the shipped app, and Ladder's come from its public App Store listing.</p>
+        <p>Start with the app. Open any deep dive for the full story, from the problem to the trade-offs and the outcome. FunZ screens are from the shipped app, and Ladder's come from its public store listings.</p>
       </div>
 
       <div class="studies">
@@ -814,9 +824,9 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <span class="sticker">Live in Nigeria &amp; Ghana</span>
           <div class="cs-head">
             <div class="p-visual" style="--tone:#5EE3B0">
-              <img class="shotcard back" src="img/ladder-invest.webp" alt="Ladder App Store screenshot: investment portfolio in cedis with a Switch to USD button" loading="lazy" decoding="async">
-              <img class="shotcard front" src="img/ladder-home.webp" alt="Ladder App Store screenshot: home screen showing portfolio value in cedis with the naira equivalent" loading="lazy" decoding="async">
-              <span class="mocklabel">From Ladder's App Store listing</span>
+              <img class="shotcard back" src="img/ladder-invest.webp" alt="Ladder store screenshot: investment portfolio with a naira balance, its dollar value and an IPO spotlight" loading="lazy" decoding="async">
+              <img class="shotcard front" src="img/ladder-home.webp" alt="Ladder store screenshot: home screen with total assets, a verification progress card and savings plans" loading="lazy" decoding="async">
+              <span class="mocklabel">From Ladder's store listing</span>
             </div>
             <div>
               <div class="p-tags"><span class="tag plat">iOS</span><span class="tag plat">Android</span><span class="tag">Riverpod</span><span class="tag">GetIt</span><span class="tag">WebSockets</span><span class="tag">Shorebird</span></div>
@@ -833,14 +843,13 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
             </div>
           </div>
           <div class="cs-body">
-            <div class="cell full"><h4>From the App Store listing</h4>
+            <div class="cell full"><h4>From the store listings</h4>
               <div class="gallery">
-                <img src="img/ladder-savings.webp" alt="Savings plans: Flex Savings, Goal Savings and Ladder Lock" decoding="async">
-                <img src="img/ladder-budget.webp" alt="Spending: track expenses, set budgets, get insights" decoding="async">
-                <img src="img/ladder-emergency.webp" alt="Emergency fund setup in cedis with 3, 4 or 6 months of cover" decoding="async">
-                <img src="img/ladder-invest.webp" alt="Investment portfolio with Switch to USD" decoding="async">
-                <img src="img/ladder-lady.webp" alt="Lady, the in-app financial assistant" decoding="async">
-                <img src="img/ladder-brand.webp" alt="Ladder: Save, Invest, Spend" decoding="async">
+                <img src="img/ladder-home.webp" alt="Home: total assets, verification progress and first savings plans" decoding="async">
+                <img src="img/ladder-savings.webp" alt="A savings goal with auto-save, progress and a target date" decoding="async">
+                <img src="img/ladder-budget.webp" alt="Spending: track expenses, set budgets and get insights" decoding="async">
+                <img src="img/ladder-emergency.webp" alt="Emergency fund: set monthly expenses and pick 3, 4 or 6 months of cover" decoding="async">
+                <img src="img/ladder-invest.webp" alt="Investments: portfolio value in naira and dollars, with debt notes, commercial paper and equities" decoding="async">
               </div>
             </div>
           </div>
@@ -1215,7 +1224,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
         <p>I build for the conditions my users actually have: <strong>several ways to pay, identity checks, and regulators who decide what each account tier can do.</strong></p>
         <p>Off the clock, there's always music on, anywhere from Kendrick to Don Moen. I'm usually mid-way through an anime, and I'll rewatch anything that bends reality: <em>The Matrix</em>, <em>Inception</em>, <em>Dark</em>.</p>
         <ul class="creds">
-          <li><span>Education</span>ND &amp; HND, Mechanical Engineering · Yaba College of Technology</li>
+          <li><span>Education</span>HND, Mechanical Engineering · Yaba College of Technology</li>
           <li><span>Award</span>Grand Prize, SMFEST Hackathon (Silicon Africa), 2022</li>
         </ul>
         <div class="pubspec" aria-label="A pubspec.yaml describing Henry">
@@ -1264,7 +1273,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
           <a href="https://www.linkedin.com/in/henry-ifebunandu">LinkedIn</a>
           <a href="https://medium.com/@henryifebunandu">Medium</a>
           <a href="https://pub.dev/packages/liveness_flutter">pub.dev</a>
-          <!-- CV: add when ready -> <a href="/henry-ifebunandu-cv.pdf">CV</a> -->
+          <a href="https://docs.google.com/document/d/1AGjyF6OA3aF0HarBmbmpifeQHL2j5BucJPpuHda46rk/edit?usp=sharing" target="_blank" rel="noopener" data-cv="contact">Resume</a>
         </div>
         <figure class="toon" aria-label="Cartoon of Henry wearing nerd glasses">
           <p class="toon-bubble">Inbox is open. Say hi!</p>
@@ -1630,6 +1639,7 @@ img.portrait{display:block;width:100%;height:auto;object-fit:cover;background:va
     var a = e.target.closest('a, button'); if (!a) return;
     if (a.id === 'copy') return track('copy-email');
     if (a.dataset.app) return track('store-click', {app: a.dataset.app, store: a.dataset.store});
+    if (a.dataset.cv) return track('resume-click', {where: a.dataset.cv});
     var href = a.getAttribute('href') || '';
     var where = a.closest('section, header, footer'); where = where ? (where.id || where.tagName.toLowerCase()) : 'page';
     if (href.indexOf('mailto:') === 0) return track('email-click', {where: where});
