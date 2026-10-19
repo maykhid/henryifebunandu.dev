@@ -1,49 +1,37 @@
-# Henry Ifebunandu: portfolio site
+# henryifebunandu.dev
 
-This is a static site (plain HTML/CSS/JS in one file) built around one line: *I've been writing Flutter since 2019. Most of it touches somebody's money.*
+Source for [henryifebunandu.dev](https://henryifebunandu.dev), the portfolio of Henry Ifebunandu, a senior mobile engineer in Lagos who builds Flutter apps for finance in Nigeria and Ghana.
 
-## Files
+## What's here
 
-- `index.html` is the whole site. Its `<head>` holds the SEO description, the Open Graph tags for link previews, and a JSON-LD `Person` record with your real profile links.
-- `favicon.svg` is a placeholder "HI" icon.
-- `img/` holds the FunZ screens (home, FunZ Business, and the two Scan-to-Pay screens). The customer name and account number on the home screen are blurred. `henry.webp` is your portrait, cropped to 4:5 with photo metadata removed. `ladder-*.webp` are screenshots from Ladder's public App Store listing.
+- **`index.html`**: the whole site in one file, with HTML, CSS and JavaScript inline and no framework or build step. The `<head>` carries the SEO description, Open Graph tags for link previews and a JSON-LD `Person` record.
+- **`img/`**: WebP images (app screenshots and a portrait), compressed and stripped of metadata.
+- **`og-image.png`**: the 1200×630 preview image shown when the link is shared.
+- **`CNAME`**, **`robots.txt`** and **`sitemap.xml`**: the custom domain and search-engine basics.
 
-## Before you publish
+## The interactive demo
 
-All the "To fill in" boxes are done. What's left:
+The phone in the hero is a small, fictional finance app written in plain JavaScript. Every name, account and amount in it is made up, and no real money moves. Each flow is a pocket version of a feature from the case studies:
 
-| What | Notes |
-|---|---|
-| CV link | Add your CV as `henry-ifebunandu-cv.pdf` next to `index.html`, then uncomment the CV link in the contact section (search for `CV: add when ready`). |
-| Ladder rewrite: trade-offs | Removed for now. When you know why you rewrote instead of refactoring, add a Trade-offs box back. |
-| Ladder rating numbers | The outcome says the store rating went up. A before/after figure (e.g. 3.9 to 4.5) would make it much stronger. |
-| Ladder listing stats | The Ladder outcome quotes the listing's "27K+ active users, $2M+ saved." Check these are still what the listing says before you publish. |
-| FX volume | Add cross-border purchase counts once the rollout settles. |
+- **Send**: a transfer over the account's limit is stopped before it starts.
+- **Scan to pay**: bank details are read from a handwritten slip and filled in for you.
+- **Buy IPO**: naira-priced units paid in cedis at a locked rate, and the user re-confirms if the quote expires.
+- **Business**: business transfers wait for a second signatory, and whoever starts a payment can't approve it.
 
-`og-image.png` (1200×630) is the picture that shows when your link is shared. Your domain, henryifebunandu.dev, is already set in the canonical link, the Open Graph tags and the JSON-LD.
+## Running it locally
 
-Also check:
-- **Confidentiality.** The FunZ and Scan-to-Pay case studies use real app screens, and the Scan-to-Pay text names the OpenRouter model pipeline. Get FunZ's OK on both before the site goes live. Ladder visuals come from its public App Store listing and are labelled that way.
-- **Your own account details.** The Scan-to-Pay screens show your name, Zenith account number and handwriting. That's your call, but blur the middle digits if you'd rather not publish them.
-- **Ladder.** The Ladder studies describe internal details (FX layer, typed error codes, feature flags, analytics vendors). Get Ladder's OK, and never publish code, `env*.json` files or the Kochava trace logs from the repo.
-- **GitHub.** Visitors will click github.com/maykhid. Pin `liveness_flutter` and refresh the other pinned repos.
-- **liveness_flutter.** Now at 160/160 pub points (v0.5.0). A verified publisher (via henryifebunandu.dev) would replace "Unverified uploader" on pub.dev. The page shows pub points, not likes or downloads, which are still low.
-- **What I left out on purpose:** the unverified figures (NGN 1.6B volume, 40% cold start, 30% repayment reliability, 50% payroll automation), any testing or TDD claims, skill bars, and your phone number. Only add a number back once you can back it up.
+There is nothing to install. Open `index.html` in a browser, or serve the folder:
 
-## The hero demo
+```bash
+python3 -m http.server 8000
+```
 
-The phone in the hero is a small, fictional finance app built in HTML for this page. No real accounts or money are involved, and every name in it is made up. Each flow is a pocket version of something you shipped:
-- **Send**: a ₦80,000 transfer is stopped before it starts, because it's over the Tier 1 limit. Any 4-digit PIN works.
-- **Scan to pay**: bank details are read from a handwritten slip and checked before you send (FunZ Scan-to-Pay).
-- **Buy IPO**: naira-priced IPO units paid in cedis at a locked rate. If the quote expires, the user has to confirm the new amount (Ladder FX).
-- **Business**: transfers wait for a second signatory, who approves with an SMS code. Whoever starts a payment can't approve it (FunZ Business).
+Then visit http://localhost:8000.
 
-Umami records `demo-flow`, `demo-done`, `demo-limit` and `demo-requote` events, so you can see which flows visitors try.
+## Hosting and analytics
 
-## Deploy (free)
+The site is hosted on GitHub Pages under a custom domain. Analytics run on [Umami](https://umami.is), which is cookieless, so there's no consent banner, and it only counts visits on the live domain.
 
-Use **Cloudflare Pages**, **Netlify**, **Vercel** or **GitHub Pages**: drag and drop the folder, or connect a repo. Add your domain, then submit it in Google Search Console.
+## Usage
 
-## Next step
-
-Once the gaps above are filled, give each case study its own page (for example `/work/ladder-v2/`) with its own `<title>` and description. Separate pages rank much better in search than one long page.
+The code is here to read and learn from. The writing, the portrait and the app screenshots aren't for reuse: the Ladder and FunZ screenshots belong to their respective companies.
